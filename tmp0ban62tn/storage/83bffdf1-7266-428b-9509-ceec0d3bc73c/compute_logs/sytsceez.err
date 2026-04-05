@@ -1,0 +1,5 @@
+[32m2026-04-05 08:18:46 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 83bffdf1-7266-428b-9509-ceec0d3bc73c - 199974 - LOGS_CAPTURED - Started capturing logs in process (pid: 199974).
+[32m2026-04-05 08:18:46 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 83bffdf1-7266-428b-9509-ceec0d3bc73c - 199974 - top_movies_by_month - STEP_START - Started execution of step "top_movies_by_month".
+[32m2026-04-05 08:18:49 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 83bffdf1-7266-428b-9509-ceec0d3bc73c - 199974 - top_movies_by_month - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-04-05 08:18:49 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 83bffdf1-7266-428b-9509-ceec0d3bc73c - 199974 - top_movies_by_month - ASSET_MATERIALIZATION - Materialized value top_movies_by_month.
+[32m2026-04-05 08:18:49 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 83bffdf1-7266-428b-9509-ceec0d3bc73c - 199974 - top_movies_by_month - STEP_SUCCESS - Finished execution of step "top_movies_by_month" in 3.28s.

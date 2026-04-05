@@ -1,0 +1,14 @@
+version: 2.0
+sources:
+  - name: raw
+    database: dagster_db
+    schema: mflix_staging
+    tables:
+      - name: COMMENTS
+      - name: EMBEDDED_MOVIES
+      - name: EMBEDDED_MOVIES__CAST
+      - name: EMBEDDED_MOVIES__DIRECTORS
+      - name: EMBEDDED_MOVIES__COUNTRIES
+      - name: EMBEDDED_MOVIES__GENRES
+      - name: EMBEDDED_MOVIES__WRITERS
+      - name: EMBEDDED_MOVIES__LANGUAGE

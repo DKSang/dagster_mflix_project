@@ -1,0 +1,5 @@
+[32m2026-04-05 08:30:08 +0000[0m - dagster - [34mDEBUG[0m - movies_job - 313f9a56-74e7-4cf3-9672-69746c708b70 - 224009 - LOGS_CAPTURED - Started capturing logs in process (pid: 224009).
+[32m2026-04-05 08:30:08 +0000[0m - dagster - [34mDEBUG[0m - movies_job - 313f9a56-74e7-4cf3-9672-69746c708b70 - 224009 - user_engagement - STEP_START - Started execution of step "user_engagement".
+[32m2026-04-05 08:30:12 +0000[0m - dagster - [34mDEBUG[0m - movies_job - 313f9a56-74e7-4cf3-9672-69746c708b70 - 224009 - user_engagement - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-04-05 08:30:12 +0000[0m - dagster - [34mDEBUG[0m - movies_job - 313f9a56-74e7-4cf3-9672-69746c708b70 - 224009 - user_engagement - ASSET_MATERIALIZATION - Materialized value user_engagement.
+[32m2026-04-05 08:30:12 +0000[0m - dagster - [34mDEBUG[0m - movies_job - 313f9a56-74e7-4cf3-9672-69746c708b70 - 224009 - user_engagement - STEP_SUCCESS - Finished execution of step "user_engagement" in 4.15s.

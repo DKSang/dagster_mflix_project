@@ -1,0 +1,38 @@
+[32m2026-04-05 08:14:29 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - f339a8dd-555c-483e-96d3-a8890cefa998 - 185149 - LOGS_CAPTURED - Started capturing logs in process (pid: 185149).
+[32m2026-04-05 08:14:29 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - f339a8dd-555c-483e-96d3-a8890cefa998 - 185149 - user_engagement - STEP_START - Started execution of step "user_engagement".
+[32m2026-04-05 08:14:33 +0000[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB_0 - f339a8dd-555c-483e-96d3-a8890cefa998 - 185149 - user_engagement - STEP_FAILURE - Execution of step "user_engagement" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "user_engagement"::
+
+OSError: Cannot save file into a non-existent directory: 'data'
+
+Stack Trace:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/utils.py", line 54, in op_execution_error_boundary
+    yield
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 468, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute_generator.py", line 141, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute_generator.py", line 129, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+                                                                    ^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/dagster_mflix/assets/movies.py", line 32, in user_engagement
+    engagement_df.to_csv('data/movie_engagement.csv', index=False)
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/pandas/core/generic.py", line 3967, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/pandas/io/common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/pandas/io/common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+[0m

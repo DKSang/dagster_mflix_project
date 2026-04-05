@@ -1,0 +1,26 @@
+[project]
+name = "dagster-mflix"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11.8"
+dependencies = [
+    "dagster==1.7.7",
+    "dagster-embedded-elt==0.23.7",
+    "dagster-cloud==1.7.7",
+    "dagster-snowflake==0.23.7",
+    "pymongo>=4.3.3",
+    "dlt[snowflake]>=0.3.5",
+    "scikit-learn==1.5.0",
+    "dagster-webserver",
+    "pytest",
+    "pandas~=2.2.3",
+    "matplotlib",
+    "python-dotenv>=1.2.2",
+    "snowflake-connector-python[pandas]",
+    "dbt-core>=1.8.8",
+    "dbt-snowflake>=1.8.4",
+]
+
+[tool.dagster]
+module_name = "dagster_mflix"

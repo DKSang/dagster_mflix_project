@@ -1,0 +1,5 @@
+[32m2026-04-05 08:15:23 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 702483bf-888a-45ae-8218-5a6d95279491 - 187191 - LOGS_CAPTURED - Started capturing logs in process (pid: 187191).
+[32m2026-04-05 08:15:23 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 702483bf-888a-45ae-8218-5a6d95279491 - 187191 - user_engagement - STEP_START - Started execution of step "user_engagement".
+[32m2026-04-05 08:15:26 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 702483bf-888a-45ae-8218-5a6d95279491 - 187191 - user_engagement - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-04-05 08:15:26 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 702483bf-888a-45ae-8218-5a6d95279491 - 187191 - user_engagement - ASSET_MATERIALIZATION - Materialized value user_engagement.
+[32m2026-04-05 08:15:27 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB_0 - 702483bf-888a-45ae-8218-5a6d95279491 - 187191 - user_engagement - STEP_SUCCESS - Finished execution of step "user_engagement" in 4.25s.
