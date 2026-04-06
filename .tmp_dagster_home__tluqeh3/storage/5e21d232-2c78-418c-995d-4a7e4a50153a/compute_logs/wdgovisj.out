@@ -1,0 +1,30 @@
+Running with dbt=1.8.8
+Registered adapter: snowflake=1.8.4
+Found 18 models, 27 data tests, 8 sources, 570 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 9 START sql table model dbt_schema.agg_top_movies_by_month ................ [RUN]
+1 of 9 OK created sql table model dbt_schema.agg_top_movies_by_month ........... [[32mSUCCESS 1[0m in 3.92s]
+2 of 9 START sql table model dbt_schema.dim_cast ............................... [RUN]
+2 of 9 OK created sql table model dbt_schema.dim_cast .......................... [[32mSUCCESS 1[0m in 4.20s]
+3 of 9 START sql table model dbt_schema.dim_countries .......................... [RUN]
+3 of 9 OK created sql table model dbt_schema.dim_countries ..................... [[32mSUCCESS 1[0m in 4.33s]
+4 of 9 START sql table model dbt_schema.dim_directors .......................... [RUN]
+4 of 9 OK created sql table model dbt_schema.dim_directors ..................... [[32mSUCCESS 1[0m in 3.82s]
+5 of 9 START sql table model dbt_schema.dim_genres ............................. [RUN]
+5 of 9 OK created sql table model dbt_schema.dim_genres ........................ [[32mSUCCESS 1[0m in 3.73s]
+6 of 9 START sql table model dbt_schema.dim_languages .......................... [RUN]
+6 of 9 OK created sql table model dbt_schema.dim_languages ..................... [[32mSUCCESS 1[0m in 1.51s]
+7 of 9 START sql table model dbt_schema.dim_movies ............................. [RUN]
+7 of 9 OK created sql table model dbt_schema.dim_movies ........................ [[32mSUCCESS 1[0m in 5.54s]
+8 of 9 START sql table model dbt_schema.dim_writers ............................ [RUN]
+8 of 9 OK created sql table model dbt_schema.dim_writers ....................... [[32mSUCCESS 1[0m in 4.99s]
+9 of 9 START sql table model dbt_schema.fct_movie_engagement ................... [RUN]
+9 of 9 OK created sql table model dbt_schema.fct_movie_engagement .............. [[32mSUCCESS 1[0m in 5.54s]
+
+Finished running 9 table models in 0 hours 0 minutes and 44.27 seconds (44.27s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=9 WARN=0 ERROR=0 SKIP=0 TOTAL=9

@@ -1,0 +1,21 @@
+select
+  movie_id,
+  title,
+  year,
+  released,
+  runtime,
+  imdb_rating,
+  imdb_votes,
+  primary_genre_name,
+  genre_names,
+  primary_country_name,
+  country_names,
+  primary_language_name,
+  language_names,
+  primary_director_name,
+  director_names,
+  primary_writer_name,
+  writer_names,
+  cast_names,
+  movie_dlt_id as _dlt_id
+from {{ ref('int_movie_flattened') }}

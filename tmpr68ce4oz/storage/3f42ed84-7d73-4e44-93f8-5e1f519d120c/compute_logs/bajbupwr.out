@@ -1,0 +1,96 @@
+Running with dbt=1.8.8
+Registered adapter: snowflake=1.8.4
+Found 23 models, 22 data tests, 2 sources, 570 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 39 START sql view model dbt_schema.stg_comments ........................... [RUN]
+1 of 39 OK created sql view model dbt_schema.stg_comments ...................... [[32mSUCCESS 1[0m in 3.47s]
+2 of 39 START sql view model dbt_schema.stg_embedded_movies .................... [RUN]
+2 of 39 OK created sql view model dbt_schema.stg_embedded_movies ............... [[32mSUCCESS 1[0m in 3.47s]
+3 of 39 START sql table model dbt_schema.agg_top_movies_by_month ............... [RUN]
+3 of 39 OK created sql table model dbt_schema.agg_top_movies_by_month .......... [[32mSUCCESS 1[0m in 4.09s]
+4 of 39 START sql table model dbt_schema.dim_movies ............................ [RUN]
+4 of 39 OK created sql table model dbt_schema.dim_movies ....................... [[32mSUCCESS 1[0m in 9.18s]
+5 of 39 START sql table model dbt_schema.fct_movie_engagement .................. [RUN]
+5 of 39 OK created sql table model dbt_schema.fct_movie_engagement ............. [[32mSUCCESS 1[0m in 0.89s]
+6 of 39 START sql view model dbt_schema.stg_movie_cast ......................... [RUN]
+6 of 39 ERROR creating sql view model dbt_schema.stg_movie_cast ................ [[31mERROR[0m in 8.23s]
+7 of 39 START sql view model dbt_schema.stg_movie_countries .................... [RUN]
+7 of 39 ERROR creating sql view model dbt_schema.stg_movie_countries ........... [[31mERROR[0m in 3.44s]
+8 of 39 START sql view model dbt_schema.stg_movie_directors .................... [RUN]
+8 of 39 ERROR creating sql view model dbt_schema.stg_movie_directors ........... [[31mERROR[0m in 3.27s]
+9 of 39 START sql view model dbt_schema.stg_movie_genres ....................... [RUN]
+9 of 39 ERROR creating sql view model dbt_schema.stg_movie_genres .............. [[31mERROR[0m in 3.22s]
+10 of 39 START sql view model dbt_schema.stg_movie_languages ................... [RUN]
+10 of 39 ERROR creating sql view model dbt_schema.stg_movie_languages .......... [[31mERROR[0m in 3.35s]
+11 of 39 START sql view model dbt_schema.stg_movie_writers ..................... [RUN]
+11 of 39 ERROR creating sql view model dbt_schema.stg_movie_writers ............ [[31mERROR[0m in 3.35s]
+12 of 39 START test not_null_agg_top_movies_by_month_month_start ............... [RUN]
+12 of 39 PASS not_null_agg_top_movies_by_month_month_start ..................... [[32mPASS[0m in 3.61s]
+13 of 39 START test not_null_dim_movies_movie_id ............................... [RUN]
+13 of 39 PASS not_null_dim_movies_movie_id ..................................... [[32mPASS[0m in 0.84s]
+14 of 39 START test unique_dim_movies_movie_id ................................. [RUN]
+14 of 39 PASS unique_dim_movies_movie_id ....................................... [[32mPASS[0m in 3.35s]
+15 of 39 START test not_null_fct_movie_engagement_movie_id ..................... [RUN]
+15 of 39 PASS not_null_fct_movie_engagement_movie_id ........................... [[32mPASS[0m in 3.47s]
+16 of 39 SKIP relation dbt_schema.dim_cast ..................................... [[33mSKIP[0m]
+17 of 39 SKIP relation dbt_schema.dim_countries ................................ [[33mSKIP[0m]
+18 of 39 SKIP relation dbt_schema.dim_directors ................................ [[33mSKIP[0m]
+19 of 39 SKIP relation dbt_schema.dim_genres ................................... [[33mSKIP[0m]
+20 of 39 SKIP relation dbt_schema.dim_languages ................................ [[33mSKIP[0m]
+21 of 39 SKIP relation dbt_schema.dim_writers .................................. [[33mSKIP[0m]
+22 of 39 SKIP test not_null_dim_cast_cast_id ................................... [[33mSKIP[0m]
+23 of 39 SKIP test not_null_dim_cast_cast_name ................................. [[33mSKIP[0m]
+24 of 39 SKIP test unique_dim_cast_cast_id ..................................... [[33mSKIP[0m]
+25 of 39 SKIP test not_null_dim_countries_country_id ........................... [[33mSKIP[0m]
+26 of 39 SKIP test not_null_dim_countries_country_name ......................... [[33mSKIP[0m]
+27 of 39 SKIP test unique_dim_countries_country_id ............................. [[33mSKIP[0m]
+28 of 39 SKIP test not_null_dim_directors_director_id .......................... [[33mSKIP[0m]
+29 of 39 SKIP test not_null_dim_directors_director_name ........................ [[33mSKIP[0m]
+30 of 39 SKIP test unique_dim_directors_director_id ............................ [[33mSKIP[0m]
+31 of 39 SKIP test not_null_dim_genres_genre_id ................................ [[33mSKIP[0m]
+32 of 39 SKIP test not_null_dim_genres_genre_name .............................. [[33mSKIP[0m]
+33 of 39 SKIP test unique_dim_genres_genre_id .................................. [[33mSKIP[0m]
+34 of 39 SKIP test not_null_dim_languages_language_id .......................... [[33mSKIP[0m]
+35 of 39 SKIP test not_null_dim_languages_language_name ........................ [[33mSKIP[0m]
+36 of 39 SKIP test unique_dim_languages_language_id ............................ [[33mSKIP[0m]
+37 of 39 SKIP test not_null_dim_writers_writer_id .............................. [[33mSKIP[0m]
+38 of 39 SKIP test not_null_dim_writers_writer_name ............................ [[33mSKIP[0m]
+39 of 39 SKIP test unique_dim_writers_writer_id ................................ [[33mSKIP[0m]
+
+Finished running 8 view models, 9 table models, 22 data tests in 0 hours 1 minutes and 4.55 seconds (64.55s).
+
+[31mCompleted with 6 errors and 0 warnings:[0m
+
+  Database Error in model stg_movie_cast (models/staging/stg_movie_cast.sql)
+  000904 (42000): SQL compilation error: error line 7 at position 8
+  invalid identifier '"cast"'
+  compiled code at target/dbt_transform-3f42ed8-f908238/run/mflix_snowflake/models/staging/stg_movie_cast.sql
+
+  Database Error in model stg_movie_countries (models/staging/stg_movie_countries.sql)
+  000904 (42000): SQL compilation error: error line 7 at position 8
+  invalid identifier 'COUNTRIES'
+  compiled code at target/dbt_transform-3f42ed8-f908238/run/mflix_snowflake/models/staging/stg_movie_countries.sql
+
+  Database Error in model stg_movie_directors (models/staging/stg_movie_directors.sql)
+  000904 (42000): SQL compilation error: error line 7 at position 8
+  invalid identifier 'DIRECTORS'
+  compiled code at target/dbt_transform-3f42ed8-f908238/run/mflix_snowflake/models/staging/stg_movie_directors.sql
+
+  Database Error in model stg_movie_genres (models/staging/stg_movie_genres.sql)
+  000904 (42000): SQL compilation error: error line 7 at position 8
+  invalid identifier 'GENRES'
+  compiled code at target/dbt_transform-3f42ed8-f908238/run/mflix_snowflake/models/staging/stg_movie_genres.sql
+
+  Database Error in model stg_movie_languages (models/staging/stg_movie_languages.sql)
+  000904 (42000): SQL compilation error: error line 7 at position 8
+  invalid identifier 'LANGUAGES'
+  compiled code at target/dbt_transform-3f42ed8-f908238/run/mflix_snowflake/models/staging/stg_movie_languages.sql
+
+  Database Error in model stg_movie_writers (models/staging/stg_movie_writers.sql)
+  000904 (42000): SQL compilation error: error line 7 at position 8
+  invalid identifier 'WRITERS'
+  compiled code at target/dbt_transform-3f42ed8-f908238/run/mflix_snowflake/models/staging/stg_movie_writers.sql
+
+Done. PASS=9 WARN=0 ERROR=6 SKIP=24 TOTAL=39

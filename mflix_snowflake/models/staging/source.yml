@@ -1,14 +1,40 @@
-version: 2.0
+version: 2
 sources:
   - name: raw
     database: dagster_db
-    schema: mflix_staging
+    schema: mflix
     tables:
-      - name: COMMENTS
-      - name: EMBEDDED_MOVIES
-      - name: EMBEDDED_MOVIES__CAST
-      - name: EMBEDDED_MOVIES__DIRECTORS
-      - name: EMBEDDED_MOVIES__COUNTRIES
-      - name: EMBEDDED_MOVIES__GENRES
-      - name: EMBEDDED_MOVIES__WRITERS
-      - name: EMBEDDED_MOVIES__LANGUAGE
+      - name: comments
+        meta:
+          dagster:
+            description: "This table contains all the comments made by users on movies."
+            asset_key: [dlt_mongodb_comments]
+      - name: embedded_movies
+        meta:
+          dagster:
+            description: "This table contains all the movie details, including embedded fields for genres, countries, cast, directors, writers, and languages."
+            asset_key: [dlt_mongodb_embedded_movies]
+      - name: embedded_movies__genres
+        meta:
+          dagster:
+            description: "This table contains the genres associated with each movie, extracted from the embedded_movies table."
+      - name: embedded_movies__countries
+        meta:
+          dagster:
+            description: "This table contains the countries associated with each movie, extracted from the embedded_movies table."
+      - name: embedded_movies__cast
+        meta:
+          dagster:
+            description: "This table contains the cast members associated with each movie, extracted from the embedded_movies table."
+      - name: embedded_movies__directors
+        meta:
+          dagster:
+            description: "This table contains the directors associated with each movie, extracted from the embedded_movies table."
+      - name: embedded_movies__writers
+        meta:
+          dagster:
+            description: "This table contains the writers associated with each movie, extracted from the embedded_movies table."
+      - name: embedded_movies__languages
+        meta:
+          dagster:
+            description: "This table contains the languages associated with each movie, extracted from the embedded_movies table."

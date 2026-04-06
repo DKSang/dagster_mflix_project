@@ -1,0 +1,107 @@
+version: 2
+
+models:
+  - name: dim_movies
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+          - unique
+
+  - name: fct_movie_engagement
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: primary_genre_id
+        tests:
+          - relationships:
+              to: ref('dim_genres')
+              field: genre_id
+      - name: primary_country_id
+        tests:
+          - relationships:
+              to: ref('dim_countries')
+              field: country_id
+      - name: primary_language_id
+        tests:
+          - relationships:
+              to: ref('dim_languages')
+              field: language_id
+      - name: primary_director_id
+        tests:
+          - relationships:
+              to: ref('dim_directors')
+              field: director_id
+      - name: primary_writer_id
+        tests:
+          - relationships:
+              to: ref('dim_writers')
+              field: writer_id
+
+  - name: agg_top_movies_by_month
+    columns:
+      - name: month_start
+        tests:
+          - not_null
+
+  - name: dim_genres
+    columns:
+      - name: genre_id
+        tests:
+          - not_null
+          - unique
+      - name: genre_name
+        tests:
+          - not_null
+
+  - name: dim_countries
+    columns:
+      - name: country_id
+        tests:
+          - not_null
+          - unique
+      - name: country_name
+        tests:
+          - not_null
+
+  - name: dim_languages
+    columns:
+      - name: language_id
+        tests:
+          - not_null
+          - unique
+      - name: language_name
+        tests:
+          - not_null
+
+  - name: dim_cast
+    columns:
+      - name: cast_id
+        tests:
+          - not_null
+          - unique
+      - name: cast_name
+        tests:
+          - not_null
+
+  - name: dim_directors
+    columns:
+      - name: director_id
+        tests:
+          - not_null
+          - unique
+      - name: director_name
+        tests:
+          - not_null
+
+  - name: dim_writers
+    columns:
+      - name: writer_id
+        tests:
+          - not_null
+          - unique
+      - name: writer_name
+        tests:
+          - not_null
+

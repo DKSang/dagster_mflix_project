@@ -1,0 +1,76 @@
+# Soda Checks for Raw Ingestion Layer (MongoDB sources)
+# Validates data quality right after ingestion from raw zone
+
+checks for comments:
+  - row_count > 0:
+      name: "Raw comments table has data"
+  - missing_count(movie_id) = 0:
+      name: "No null movie_id in comments"
+  - invalid_count(comment_date) = 0:
+      valid_format: "date"
+      name: "All comment dates are valid dates"
+  - duplicate_count(movie_id, _id) = 0:
+      name: "No duplicate comment records"
+
+checks for embedded_movies:
+  - row_count > 0:
+      name: "Raw embedded_movies table has data"
+  - missing_count(_id) = 0:
+      name: "No null _id in embedded_movies"
+  - missing_count(title) = 0:
+      name: "No null title in embedded_movies"
+  - invalid_count(year) = 0:
+      valid_format: "number"
+      name: "All years are numeric"
+  - invalid_range(year) = 0:
+      valid_min: 1900
+      valid_max: 2099
+      name: "All movie years are realistic"
+
+checks for embedded_movies__genres:
+  - row_count > 0:
+      name: "Raw genres table has data"
+  - missing_count(_dlt_parent_id) = 0:
+      name: "No null parent movie id in genres"
+  - missing_count(value) = 0:
+      name: "No null genre values"
+
+checks for embedded_movies__cast:
+  - row_count > 0:
+      name: "Raw cast table has data"
+  - missing_count(_dlt_parent_id) = 0:
+      name: "No null parent movie id in cast"
+  - missing_count(value) = 0:
+      name: "No null cast names"
+
+checks for embedded_movies__countries:
+  - row_count > 0:
+      name: "Raw countries table has data"
+  - missing_count(_dlt_parent_id) = 0:
+      name: "No null parent movie id in countries"
+  - missing_count(value) = 0:
+      name: "No null country values"
+
+checks for embedded_movies__directors:
+  - row_count > 0:
+      name: "Raw directors table has data"
+  - missing_count(_dlt_parent_id) = 0:
+      name: "No null parent movie id in directors"
+  - missing_count(value) = 0:
+      name: "No null director names"
+
+checks for embedded_movies__writers:
+  - row_count > 0:
+      name: "Raw writers table has data"
+  - missing_count(_dlt_parent_id) = 0:
+      name: "No null parent movie id in writers"
+  - missing_count(value) = 0:
+      name: "No null writer names"
+
+checks for embedded_movies__languages:
+  - row_count > 0:
+      name: "Raw languages table has data"
+  - missing_count(_dlt_parent_id) = 0:
+      name: "No null parent movie id in languages"
+  - missing_count(value) = 0:
+      name: "No null language values"

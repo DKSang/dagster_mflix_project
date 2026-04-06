@@ -1,0 +1,14 @@
+Running with dbt=1.8.8
+Registered adapter: snowflake=1.8.4
+Found 18 models, 27 data tests, 8 sources, 570 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 1 START sql view model dbt_schema.stg_movie_directors ..................... [RUN]
+1 of 1 OK created sql view model dbt_schema.stg_movie_directors ................ [[32mSUCCESS 1[0m in 5.29s]
+
+Finished running 1 view model in 0 hours 0 minutes and 15.10 seconds (15.10s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1

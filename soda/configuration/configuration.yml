@@ -1,0 +1,13 @@
+data_source snowflake_wh:
+  type: snowflake
+  connection:
+    account: ${SNOWFLAKE_ACCOUNT}
+    username: ${SNOWFLAKE_USER}
+    password: ${SNOWFLAKE_PASSWORD}
+    role: dagster_role
+    database: dagster_db
+    warehouse: dagster_wh
+    schema: mflix
+    session_parameters:
+      QUERY_TAG: "soda_data_quality"
+      STATEMENT_TIMEOUT_IN_SECONDS: 300

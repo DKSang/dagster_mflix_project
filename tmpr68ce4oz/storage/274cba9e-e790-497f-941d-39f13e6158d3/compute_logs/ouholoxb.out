@@ -1,0 +1,27 @@
+Running with dbt=1.8.8
+Registered adapter: snowflake=1.8.4
+Found 18 models, 27 data tests, 8 sources, 570 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 5 START sql table model dbt_schema.dim_directors .......................... [RUN]
+1 of 5 OK created sql table model dbt_schema.dim_directors ..................... [[32mSUCCESS 1[0m in 4.10s]
+2 of 5 START test not_null_dim_directors_director_id ........................... [RUN]
+2 of 5 PASS not_null_dim_directors_director_id ................................. [[32mPASS[0m in 1.29s]
+3 of 5 START test not_null_dim_directors_director_name ......................... [RUN]
+3 of 5 PASS not_null_dim_directors_director_name ............................... [[32mPASS[0m in 3.22s]
+4 of 5 START test unique_dim_directors_director_id ............................. [RUN]
+4 of 5 PASS unique_dim_directors_director_id ................................... [[32mPASS[0m in 3.36s]
+5 of 5 START test relationships_fct_movie_engagement_primary_director_id__director_id__ref_dim_directors_  [RUN]
+5 of 5 ERROR relationships_fct_movie_engagement_primary_director_id__director_id__ref_dim_directors_  [[31mERROR[0m in 3.60s]
+
+Finished running 1 table model, 4 data tests in 0 hours 0 minutes and 23.19 seconds (23.19s).
+
+[31mCompleted with 1 error and 0 warnings:[0m
+
+  Database Error in test relationships_fct_movie_engagement_primary_director_id__director_id__ref_dim_directors_ (models/marts/schema.yml)
+  000904 (42000): SQL compilation error: error line 11 at position 11
+  invalid identifier 'PRIMARY_DIRECTOR_ID'
+  compiled code at target/dbt_transform-274cba9-943343c/run/mflix_snowflake/models/marts/schema.yml/relationships_fct_movie_engage_7e1cc9c834509f9da20dc61d0da53327.sql
+
+Done. PASS=4 WARN=0 ERROR=1 SKIP=0 TOTAL=5

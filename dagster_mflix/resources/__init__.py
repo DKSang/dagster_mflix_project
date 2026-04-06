@@ -1,7 +1,12 @@
+from pathlib import Path
+
 from dagster import EnvVar
 from dagster_embedded_elt.dlt import DagsterDltResource
 from dagster_snowflake import SnowflakeResource
+from dagster_dbt import DbtCliResource
 
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 snowflake_resource = SnowflakeResource(
     account=EnvVar("SNOWFLAKE_ACCOUNT"),  # required
@@ -14,3 +19,8 @@ snowflake_resource = SnowflakeResource(
 )
 
 dlt_resource = DagsterDltResource()
+dbt_resource = DbtCliResource(
+    project_dir="mflix_snowflake",
+    profiles_dir="/home/dksan/.dbt",
+    dbt_executable=str(REPO_ROOT / ".venv" / "bin" / "dbt"),
+)
