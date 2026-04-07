@@ -12,15 +12,24 @@ Một nền tảng dữ liệu end-to-end thực tiễn cho phân tích MFlix: i
 
 ## 🖼️ Kiến trúc Hệ thống
 
-Hình ảnh kiến trúc được vẽ bằng Excalidraw:
+Ảnh pipeline (render được trực tiếp trên GitHub):
 
-- `excalidraw/project_architecture_with_logos.excalidraw` (file nguồn có thể chỉnh sửa)
+![Dagster Assets DAG](images/dagster_asset.png)
+![MongoDB Raw Zone](images/mongodb_raw.png)
+![Snowflake Warehouse](images/snowflake_wh.png)
+
+File Excalidraw để chỉnh sửa kiến trúc:
+
+- [excalidraw/project_architecture_with_logos.excalidraw](excalidraw/project_architecture_with_logos.excalidraw)
+- [images/project_architecture.excalidraw](images/project_architecture.excalidraw)
+
+Lưu ý: GitHub không render trực tiếp file `.excalidraw` như ảnh, nên cần mở bằng Excalidraw để chỉnh sửa hoặc export PNG/SVG.
 
 ## 🔧 Các Tính Năng Chính
 
 - ELT từ đầu đến cuối: MongoDB -> dlt -> Snowflake -> dbt marts.
 - Pipeline ưu tiên chất lượng với kiểm tra Soda và audit logs.
-- Marts được hợp đồng hóa để consumptio downstream ổn định.
+- Marts được hợp đồng hóa để downstream consumption ổn định.
 - Các luồng end-user chuyên dụng:
   - báo cáo ad-hoc theo thể loại
   - snapshot KPI BI
