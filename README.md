@@ -175,9 +175,9 @@ Output sẽ được lưu vào thư mục `data/`.
 
 | Pipeline | Tần Suất | Thời Gian Chạy | Mục Đích |
 | --- | --- | --- | --- |
-| **Ingestion Job** | Mỗi 5 phút | ~2-3 phút | Kéo data từ MongoDB vào Snowflake raw layer |
+| **Ingestion Job** | Mỗi 5 phút (Non-activate) | ~2-3 phút | Kéo data từ MongoDB vào Snowflake raw layer |
 | **Transform Job** | Monthly (partitioned) | ~30-45 giây | dbt models (staging → intermediate → marts) |
-| **Quality Job** | Mỗi giờ (phút 15) | ~10-15 giây | Soda checks trên mỗi layer (raw/staging/transform/report) |
+| **Quality Job** | Mỗi giờ (phút 15) (Non-activate) | ~10-15 giây | Soda checks trên mỗi layer (raw/staging/transform/report) |
 | **End-user Jobs** | On-demand | ~2-5 giây | Ad-hoc reports, BI snapshots, ML forecasts |
 | **Full Pipeline** | Monthly | ~3-4 phút | Ingestion + Transform + Quality (end-to-end) |
 
