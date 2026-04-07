@@ -101,11 +101,16 @@ uv sync
 
 ### 3. Biến Môi trường
 
-Set ít nhất:
-
-- `SNOWFLAKE_ACCOUNT`
-- `SNOWFLAKE_USER`
-- `SNOWFLAKE_PASSWORD`
+- `SOURCES__MONGODB__MONGODB__CONNECTION_URL="mongodb+srv://<user>:<password>@cluster0"`
+- `DESTINATION__SNOWFLAKE__CREDENTIALS__DATABASE="dagster_db"`
+- `DESTINATION__SNOWFLAKE__CREDENTIALS__PASSWORD=${snowflake_password}`
+- `DESTINATION__SNOWFLAKE__CREDENTIALS__USERNAME=${snowflake_user}`
+- `DESTINATION__SNOWFLAKE__CREDENTIALS__HOST=${snowflake_account}`
+- `DESTINATION__SNOWFLAKE__CREDENTIALS__WAREHOUSE="dagster_wh"`
+- `DESTINATION__SNOWFLAKE__CREDENTIALS__ROLE="dagster_role"`
+- `SNOWFLAKE_ACCOUNT=${snowflake_account}`
+- `SNOWFLAKE_USER=${snowflake_user}`
+- `SNOWFLAKE_PASSWORD=${snowflake_password}`
 
 Ví dụ .env:
 
