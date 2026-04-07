@@ -1,4 +1,4 @@
-# 🎬 MFlix Analytics Platform - Dagster + dlt + dbt + Snowflake
+# 🎬 Nền tảng MFlix Analytics - Dagster + dlt + dbt + Snowflake
 
 [![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/)
 [![Dagster](https://img.shields.io/badge/Orchestration-Dagster-5c6cff.svg)](https://dagster.io/)
@@ -8,92 +8,84 @@
 [![Snowflake](https://img.shields.io/badge/Warehouse-Snowflake-29b5e8.svg)](https://www.snowflake.com/)
 [![uv](https://img.shields.io/badge/Package%20Manager-uv-3f7cff.svg)](https://github.com/astral-sh/uv)
 
-A practical end-to-end data platform for MFlix analytics: MongoDB ingestion, Snowflake warehousing, dbt modeling, Soda quality controls, and Dagster orchestration with end-user outputs for ad-hoc, BI, and simple ML use cases.
+Một nền tảng dữ liệu end-to-end thực tiễn cho phân tích MFlix: ingestion từ MongoDB, lưu trữ trên Snowflake, modeling với dbt, kiểm soát chất lượng bằng Soda, và orchestration bằng Dagster với các luồng end-user cho ad-hoc, BI, và simple ML.
 
-## 🖼️ System Architecture
+## 🖼️ Kiến trúc Hệ thống
 
-Architecture image:
+Hình ảnh kiến trúc được vẽ bằng Excalidraw:
 
-![MFlix Pipeline Architecture](images/project_architecture.svg)
+- `excalidraw/project_architecture_with_logos.excalidraw` (file nguồn có thể chỉnh sửa)
 
-Source file:
+## 🔧 Các Tính Năng Chính
 
-- `excalidraw/mflix-pipeline-architecture.excalidraw` (editable source)
+- ELT từ đầu đến cuối: MongoDB -> dlt -> Snowflake -> dbt marts.
+- Pipeline ưu tiên chất lượng với kiểm tra Soda và audit logs.
+- Marts được hợp đồng hóa để consumptio downstream ổn định.
+- Các luồng end-user chuyên dụng:
+  - báo cáo ad-hoc theo thể loại
+  - snapshot KPI BI
+  - dự báo rating đơn giản bằng ML hàng tháng
+- Orchestration giống production sử dụng Dagster jobs và schedules.
 
-## 🔧 Key Features
+## 📦 Output cho End Users
 
-- End-to-end ELT: MongoDB -> dlt -> Snowflake -> dbt marts.
-- Quality-first pipeline with Soda checks and quality audit logs.
-- Contracted marts for stable downstream consumption.
-- Dedicated end-user workloads:
-  - ad-hoc genre report
-  - BI KPI snapshot
-  - simple ML monthly rating forecast
-- Production-like orchestration using Dagster jobs and schedules.
+Các output được sinh ra và lưu vào thư mục `data/`:
 
-## 📦 Outputs for End Users
+- `data/ad_hoc_genre_interest_report.csv` - báo cáo ad-hoc theo thể loại
+- `data/bi_kpi_snapshot.csv` - snapshot KPI cho BI
+- `data/ml_monthly_rating_forecast.csv` - dự báo rating hàng tháng
+- `data/movie_engagement.csv` - engagement của phim
+- `data/top_movies_by_month.csv` - top phim theo tháng
 
-Generated outputs are written to `data/`:
+## 📸 Quan sát Pipeline Chạy
 
-- `data/ad_hoc_genre_interest_report.csv`
-- `data/bi_kpi_snapshot.csv`
-- `data/ml_monthly_rating_forecast.csv`
-- `data/movie_engagement.csv`
-- `data/top_movies_by_month.csv`
+Để xem pipeline hoạt động:
 
-## 📸 Pipeline Execution
+1. Khởi động Dagster UI tại http://localhost:3000.
+2. Xem danh sách assets và DAG đầy đủ.
+3. Chạy một job và giám sát thực thi.
+4. Kiểm tra file CSV output trong thư mục `data/`.
+5. Mở file Excalidraw để xem sơ đồ kiến trúc chi tiết.
 
-To see the pipeline in action:
+## 🛠️ Chi Tiết Tech Stack
 
-1. Start Dagster UI and navigate to the assets view to see the full DAG.
-2. Trigger a job run and monitor the execution.
-3. Check `logs/quality_audit/` for quality gate results.
-4. Export CSV outputs from `data/` for downstream consumption.
-
-For production screenshots, run Dagster locally and capture from the UI.
-
-## 🛠️ Tech Stack Details
-
-| Layer | Tool | Purpose |
+| Lớp | Công cụ | Mục đích |
 | --- | --- | --- |
-| Orchestration | Dagster | Assets, jobs, schedules, observability |
-| Ingestion | dlt | MongoDB extraction and Snowflake loading |
-| Warehouse | Snowflake | Central analytical storage |
-| Transform | dbt | Staging, intermediate, marts modeling |
-| Data Quality | Soda | Runtime checks and policy enforcement |
+| Orchestration | Dagster | Assets, jobs, schedules, quan sát |
+| Ingestion | dlt | Trích xuất MongoDB và load Snowflake |
+| Warehouse | Snowflake | Lưu trữ phân tích tập trung |
+| Transform | dbt | Modeling staging, intermediate, marts |
+| Data Quality | Soda | Kiểm tra runtime và enforcement policy |
 | Contracts | YAML + Python guards | MART schema/version governance |
 | Analytics | pandas + scikit-learn | Ad-hoc BI/ML end-user outputs |
-| Python Tooling | uv | Dependency and command execution |
+| Python Tooling | uv | Dependency và command execution |
 
-## 📁 Project Structure
+## 📁 Cấu trúc Dự án
 
 ```text
 dagster-mflix/
 ├── dagster_mflix/
-│   ├── assets/                    # mongodb, dbt, quality, end_user assets
-│   ├── jobs/                      # movies, transform, quality, ad_hoc, bi, ml jobs
-│   ├── resources/                 # dlt, dbt, snowflake resources
+│   ├── assets/                 # mongodb, dbt, quality, end_user assets
+│   ├── jobs/                   # movies, transform, quality, ad_hoc, bi, ml jobs
+│   ├── resources/              # dlt, dbt, snowflake resources
 │   ├── partitions/
 │   └── schedules/
-├── mflix_snowflake/               # dbt project (staging/intermediate/marts)
-├── soda/                          # soda checks and datasource config
-├── data/                          # local output datasets for end users
-├── data_contracts/                # mart contracts + release notes
-├── images/                        # exported diagrams and screenshots
-├── excalidraw/                    # editable diagram sources
-├── dagster_mflix_tests/           # tests
-├── docs/                          # implementation/project docs
-└── _bmad-output/                  # planning and implementation artifacts
+├── mflix_snowflake/            # dbt project (staging/intermediate/marts)
+├── soda/                       # soda checks và datasource config
+├── data/                       # local output datasets cho end users
+├── data_contracts/             # mart contracts + release notes
+├── excalidraw/                 # Excalidraw diagram sources
+└── dagster_mflix_tests/        # tests
 ```
 
-## 🚀 Getting Started
+## 🚀 Bắt đầu
 
-### 1. Requirements
+### 1. Yêu cầu
 
 - Python 3.11+
 - uv
 - Snowflake credentials
-- MongoDB access (or sample source setup)
+- MongoDB access (hoặc setup sample source)
 
 ### 2. Setup
 
@@ -103,15 +95,15 @@ cd dagster-mflix
 uv sync
 ```
 
-### 3. Environment Variables
+### 3. Biến Môi trường
 
-Set at least:
+Set ít nhất:
 
 - `SNOWFLAKE_ACCOUNT`
 - `SNOWFLAKE_USER`
 - `SNOWFLAKE_PASSWORD`
 
-Example .env:
+Ví dụ .env:
 
 ```bash
 SNOWFLAKE_ACCOUNT=xy12345.us-east-1
@@ -119,17 +111,17 @@ SNOWFLAKE_USER=user_name
 SNOWFLAKE_PASSWORD=your_secret_password
 ```
 
-> ⚠️ Never commit `.env` to version control. Use `.gitignore` to exclude it.
+> ⚠️ Không bao giờ commit `.env` vào version control. Dùng `.gitignore` để exclude nó.
 
-## ⚙️ Run the Platform
+## ⚙️ Chạy Nền tảng
 
-### Start Dagster
+### Khởi động Dagster
 
 ```bash
 uv run dagster dev -m dagster_mflix
 ```
 
-Then open http://localhost:3000 in your browser.
+Sau đó mở http://localhost:3000 trong trình duyệt.
 
 ### Build dbt Models
 
@@ -139,14 +131,14 @@ uv run dbt parse
 uv run dbt build
 ```
 
-### Run New End-user dbt Dashboard Models Only
+### Chạy Dashboard Models (End-user)
 
 ```bash
 cd mflix_snowflake
 uv run dbt build --select dashboard_top_movies_monthly dashboard_engagement_daily dashboard_genre_trend_daily dashboard_rating_distribution
 ```
 
-### Run End-user Jobs Directly (Without Orchestration)
+### Chạy End-user Jobs Trực tiếp (Không qua Orchestration)
 
 ```bash
 # Ad-hoc genre report
@@ -159,7 +151,7 @@ uv run python -c "from dagster_mflix.assets.end_user import bi_kpi_snapshot; bi_
 uv run python -c "from dagster_mflix.assets.end_user import ml_monthly_rating_forecast; ml_monthly_rating_forecast()"
 ```
 
-Outputs will be written to `data/` folder.
+Output sẽ được lưu vào thư mục `data/`.
 
 ## 🧪 Validation
 
@@ -168,27 +160,26 @@ uv run pytest -q
 uv run pytest -q dagster_mflix_tests/test_data_contracts.py
 ```
 
-## 📚 Documentation
+## 📚 Tài liệu
 
-- `docs/dashboard-consumption.md`
 - `data_contracts/mart_contracts.yml`
 - `data_contracts/mart_contracts_release_notes.md`
-- `excalidraw/README.md`
+- `excalidraw/README.md` - hướng dẫn vẽ sơ đồ
 
-## 🤝 Presentation Note
+## 🤝 Ghi Chú Presentation
 
-This repository is structured as a production-grade data engineering project:
+Repository này được cấu trúc như một dự án data engineering production-grade:
 
-- **Portfolio-ready README** with clear architecture, features, and quick-start sections.
-- **Dedicated `images/` and `excalidraw/`** folders for diagrams and visual documentation.
-- **Three end-user jobs** (ad-hoc, BI, ML) demonstrating real downstream consumption patterns.
-- **Quality-first design** with Soda checks and audit logs at each pipeline stage.
-- **Contract governance** for MART schemas with semantic versioning.
+- **README sẵn sàng portfolio** với các section kiến trúc, tính năng, và quick-start rõ ràng.
+- **Folder `excalidraw/`** cho sơ đồ có thể chỉnh sửa.
+- **Ba end-user jobs** (ad-hoc, BI, ML) thể hiện các pattern consumption downstream thực tiễn.
+- **Quality-first design** với kiểm tra Soda và audit logs tại mỗi giai đoạn pipeline.
+- **Contract governance** cho MART schemas với semantic versioning.
 
-Perfect for demonstrating modern data stack knowledge in interviews or client presentations.
+Hoàn hảo để thể hiện kiến thức modern data stack trong phỏng vấn hoặc presentation cho client.
 
-## 📖 Contributing & License
+## 📖 Đóng Góp & License
 
-This project is open for contributions and improvements. Please follow the existing code patterns and run tests before submitting.
+Dự án này mở để đóng góp và cải tiến. Vui lòng tuân theo các code pattern hiện có và chạy tests trước khi submit.
 
-Licensed under MIT — see LICENSE for details.
+License MIT — xem LICENSE để biết thêm chi tiết.

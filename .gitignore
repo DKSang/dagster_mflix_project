@@ -62,5 +62,28 @@ data/output/
 *.orig
 .AppleDouble
 .LSOverride
+
+# Internal workflow (BMAD) and output builds
+_bmad/
+_bmad-output/
+_bmad-generated-*/
 .github/
 docs/
+
+# Temp and runtime directories
+.tmp*/
+.tmp_dagster_home*/
+tmp*/
+tempfile/
+
+# All logs
+logs/
+
+# All cache directories
+.pytest_cache/
+.pytest_cache/
+__pycache__/
+
+# Virtual environments
+.venv
+venv/
