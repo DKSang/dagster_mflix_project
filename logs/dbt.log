@@ -123,3 +123,33 @@
 [0m13:59:38.436599 [debug] [MainThread]: Connection 'debug' was properly closed.
 [0m13:59:38.437447 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7147d9a0e010>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7147d9883410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7147a915b890>]}
 [0m13:59:38.438438 [debug] [MainThread]: Flushing usage events
+[0m17:40:49.838054 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1a04ae5d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1a04abdd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1a0440250>]}
+
+
+============================== 17:40:49.857603 | 95fd3964-050b-42b5-8713-04fb81bc4235 ==============================
+[0m17:40:49.857603 [info ] [MainThread]: Running with dbt=1.8.8
+[0m17:40:49.858193 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/dksan/.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'debug': 'False', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'False', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'log_format': 'default', 'invocation_command': 'dbt build --select int_movie_genres_bridge int_movie_countries_bridge int_movie_cast_bridge int_movie_directors_bridge int_movie_languages_bridge int_movie_writers_bridge', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m17:40:49.858559 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/dksan/code/data-engineer/dagster-mflix/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m17:40:49.859380 [debug] [MainThread]: Resource report: {"command_name": "build", "command_wall_clock_time": 0.06540308, "process_user_time": 0.886693, "process_kernel_time": 0.095858, "process_mem_max_rss": "99412", "process_in_blocks": "8", "process_out_blocks": "16", "command_success": false}
+[0m17:40:49.859921 [debug] [MainThread]: Command `dbt build` failed at 17:40:49.859818 after 0.07 seconds
+[0m17:40:49.860240 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1a043fdd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1a043fd50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ec1a043fcd0>]}
+[0m17:40:49.860551 [debug] [MainThread]: Flushing usage events
+[0m11:11:17.852741 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d478d2953d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d478d0e33d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d478d489e50>]}
+
+
+============================== 11:11:17.855454 | 7aa42bf5-ff15-4320-89d7-e10088b7c740 ==============================
+[0m11:11:17.855454 [info ] [MainThread]: Running with dbt=1.8.8
+[0m11:11:17.855997 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'profiles_dir': '/home/dksan/.dbt', 'fail_fast': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'False', 'log_format': 'default', 'static_parser': 'True', 'invocation_command': 'dbt build -s mflix_snowflake/models/marts/dim_genres.sql mflix_snowflake/models/marts/dim_languages.sql mflix_snowflake/models/marts/dim_directors.sql mflix_snowflake/models/marts/dim_writers.sql mflix_snowflake/models/marts/dim_cast.sql mflix_snowflake/models/marts/agg_top_movies_by_month.sql mflix_snowflake/models/marts/fct_movie_engagement.sql --fail-fast', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:11:17.856429 [error] [MainThread]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/dksan/code/data-engineer/dagster-mflix/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m11:11:17.857214 [debug] [MainThread]: Resource report: {"command_name": "build", "command_wall_clock_time": 0.046079133, "process_user_time": 0.890812, "process_kernel_time": 0.076464, "process_mem_max_rss": "99764", "process_out_blocks": "16", "command_success": false, "process_in_blocks": "0"}
+[0m11:11:17.857634 [debug] [MainThread]: Command `dbt build` failed at 11:11:17.857542 after 0.05 seconds
+[0m11:11:17.857988 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d478d10ff50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d478d10f790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7d4790c65150>]}
+[0m11:11:17.858302 [debug] [MainThread]: Flushing usage events

@@ -21,8 +21,8 @@ models:
       - name: primary_country_id
         tests:
           - relationships:
-              to: ref('dim_countries')
-              field: country_id
+              to: ref('dim_country')
+              field: country_key
       - name: primary_language_id
         tests:
           - relationships:
@@ -39,11 +39,61 @@ models:
               to: ref('dim_writers')
               field: writer_id
 
+  - name: fct_movie_quality
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_movies')
+              field: movie_id
+      - name: primary_genre_id
+        tests:
+          - relationships:
+              to: ref('dim_genres')
+              field: genre_id
+      - name: imdb_rating
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "between 0 and 10"
+              config:
+                severity: warn
+      - name: imdb_votes
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+
   - name: agg_top_movies_by_month
     columns:
       - name: month_start
         tests:
           - not_null
+
+  - name: agg_top_movies_by_engagement
+    columns:
+      - name: month_start
+        tests:
+          - not_null
+      - name: movie_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_movies')
+              field: movie_id
+      - name: rank
+        tests:
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: "between 1 and 10"
+              config:
+                severity: warn
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - month_start
+            - rank
 
   - name: dim_genres
     columns:
@@ -52,16 +102,6 @@ models:
           - not_null
           - unique
       - name: genre_name
-        tests:
-          - not_null
-
-  - name: dim_countries
-    columns:
-      - name: country_id
-        tests:
-          - not_null
-          - unique
-      - name: country_name
         tests:
           - not_null
 
@@ -104,4 +144,176 @@ models:
       - name: writer_name
         tests:
           - not_null
+
+  - name: dim_country
+    columns:
+      - name: country_key
+        tests:
+          - not_null
+          - unique
+      - name: country_name
+        tests:
+          - not_null
+      - name: country_code
+        tests:
+          - not_null
+
+  - name: dim_date
+    columns:
+      - name: date_key
+        tests:
+          - not_null
+          - unique
+      - name: year_number
+        tests:
+          - not_null
+      - name: month_number
+        tests:
+          - not_null
+      - name: month_start
+        tests:
+          - not_null
+
+  - name: fct_movie_consumption_daily
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: date_key
+        tests:
+          - not_null
+      - name: total_views
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+      - name: total_watch_time
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+      - name: unique_viewers
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+      - name: completion_rate
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+      - name: avg_watch_time
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - movie_id
+            - date_key
+
+  - name: agg_movie_country_daily
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_movies')
+              field: movie_id
+      - name: date_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+      - name: country_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_country')
+              field: country_key
+      - name: country_code
+        tests:
+          - not_null
+      - name: country_name
+        tests:
+          - not_null
+      - name: total_views
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+      - name: total_watch_time
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+      - name: unique_viewers
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - movie_id
+            - date_key
+            - country_key
+
+  - name: dashboard_engagement_daily
+    columns:
+      - name: date_key
+        tests:
+          - not_null
+      - name: movie_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_movies')
+              field: movie_id
+
+  - name: dashboard_top_movies_monthly
+    columns:
+      - name: month_start
+        tests:
+          - not_null
+      - name: movie_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_movies')
+              field: movie_id
+
+  - name: dashboard_genre_trend_daily
+    columns:
+      - name: date_key
+        tests:
+          - not_null
+      - name: genre_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_genres')
+              field: genre_id
+
+  - name: dashboard_rating_distribution
+    columns:
+      - name: rating_bucket
+        tests:
+          - not_null
+      - name: movie_count
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
 

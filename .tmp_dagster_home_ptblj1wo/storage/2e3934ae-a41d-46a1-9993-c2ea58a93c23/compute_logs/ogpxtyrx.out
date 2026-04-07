@@ -1,0 +1,101 @@
+Running with dbt=1.8.8
+Registered adapter: snowflake=1.8.4
+Found 29 models, 104 data tests, 8 sources, 572 macros
+
+Concurrency: 4 threads (target='dev')
+
+1 of 47 START sql table model dbt_schema.int_movie_cast_bridge ................. [RUN]
+2 of 47 START sql table model dbt_schema.int_movie_countries_bridge ............ [RUN]
+3 of 47 START sql table model dbt_schema.int_movie_directors_bridge ............ [RUN]
+4 of 47 START sql table model dbt_schema.int_movie_flattened ................... [RUN]
+3 of 47 ERROR creating sql table model dbt_schema.int_movie_directors_bridge ... [[31mERROR[0m in 3.94s]
+5 of 47 START sql table model dbt_schema.int_movie_genres_bridge ............... [RUN]
+4 of 47 ERROR creating sql table model dbt_schema.int_movie_flattened .......... [[31mERROR[0m in 4.09s]
+6 of 47 START sql table model dbt_schema.int_movie_languages_bridge ............ [RUN]
+2 of 47 ERROR creating sql table model dbt_schema.int_movie_countries_bridge ... [[31mERROR[0m in 4.23s]
+7 of 47 START sql table model dbt_schema.int_movie_writers_bridge .............. [RUN]
+1 of 47 ERROR creating sql table model dbt_schema.int_movie_cast_bridge ........ [[31mERROR[0m in 4.25s]
+8 of 47 SKIP test dbt_utils_expression_is_true_int_movie_directors_bridge_director_ordinal___0  [[33mSKIP[0m]
+9 of 47 SKIP test dbt_utils_unique_combination_of_columns_int_movie_directors_bridge_movie_id__director_name  [[33mSKIP[0m]
+10 of 47 SKIP test not_null_int_movie_directors_bridge_director_name ........... [[33mSKIP[0m]
+11 of 47 SKIP test not_null_int_movie_directors_bridge_dlt_movie_id ............ [[33mSKIP[0m]
+12 of 47 SKIP test not_null_int_movie_directors_bridge_movie_id ................ [[33mSKIP[0m]
+13 of 47 SKIP test dbt_utils_expression_is_true_int_movie_flattened_imdb_rating__between_0_and_10  [[33mSKIP[0m]
+14 of 47 SKIP test dbt_utils_expression_is_true_int_movie_flattened_imdb_votes___0  [[33mSKIP[0m]
+15 of 47 SKIP test dbt_utils_expression_is_true_int_movie_flattened_movie_id_is_not_null_and_dlt_movie_id_is_not_null  [[33mSKIP[0m]
+16 of 47 SKIP test dbt_utils_expression_is_true_int_movie_flattened_runtime___0  [[33mSKIP[0m]
+17 of 47 SKIP test dbt_utils_expression_is_true_int_movie_flattened_year___1888  [[33mSKIP[0m]
+18 of 47 SKIP test not_null_int_movie_flattened_dlt_movie_id ................... [[33mSKIP[0m]
+19 of 47 SKIP test not_null_int_movie_flattened_movie_id ....................... [[33mSKIP[0m]
+20 of 47 SKIP test not_null_int_movie_flattened_title .......................... [[33mSKIP[0m]
+21 of 47 SKIP test unique_int_movie_flattened_dlt_movie_id ..................... [[33mSKIP[0m]
+22 of 47 SKIP test unique_int_movie_flattened_movie_id ......................... [[33mSKIP[0m]
+23 of 47 SKIP test dbt_utils_expression_is_true_int_movie_countries_bridge_country_ordinal___0  [[33mSKIP[0m]
+24 of 47 SKIP test dbt_utils_unique_combination_of_columns_int_movie_countries_bridge_movie_id__country_name  [[33mSKIP[0m]
+25 of 47 SKIP test not_null_int_movie_countries_bridge_country_name ............ [[33mSKIP[0m]
+26 of 47 SKIP test not_null_int_movie_countries_bridge_dlt_movie_id ............ [[33mSKIP[0m]
+27 of 47 SKIP test not_null_int_movie_countries_bridge_movie_id ................ [[33mSKIP[0m]
+28 of 47 SKIP test dbt_utils_expression_is_true_int_movie_cast_bridge_cast_ordinal___0  [[33mSKIP[0m]
+29 of 47 SKIP test dbt_utils_unique_combination_of_columns_int_movie_cast_bridge_movie_id__cast_name  [[33mSKIP[0m]
+30 of 47 SKIP test not_null_int_movie_cast_bridge_cast_name .................... [[33mSKIP[0m]
+31 of 47 SKIP test not_null_int_movie_cast_bridge_dlt_movie_id ................. [[33mSKIP[0m]
+32 of 47 SKIP test not_null_int_movie_cast_bridge_movie_id ..................... [[33mSKIP[0m]
+5 of 47 ERROR creating sql table model dbt_schema.int_movie_genres_bridge ...... [[31mERROR[0m in 3.60s]
+6 of 47 ERROR creating sql table model dbt_schema.int_movie_languages_bridge ... [[31mERROR[0m in 3.45s]
+33 of 47 SKIP test dbt_utils_expression_is_true_int_movie_genres_bridge_genre_ordinal___0  [[33mSKIP[0m]
+34 of 47 SKIP test dbt_utils_expression_is_true_int_movie_languages_bridge_language_ordinal___0  [[33mSKIP[0m]
+35 of 47 SKIP test dbt_utils_unique_combination_of_columns_int_movie_genres_bridge_movie_id__genre_name  [[33mSKIP[0m]
+36 of 47 SKIP test dbt_utils_unique_combination_of_columns_int_movie_languages_bridge_movie_id__language_name  [[33mSKIP[0m]
+37 of 47 SKIP test not_null_int_movie_genres_bridge_dlt_movie_id ............... [[33mSKIP[0m]
+38 of 47 SKIP test not_null_int_movie_genres_bridge_genre_name ................. [[33mSKIP[0m]
+39 of 47 SKIP test not_null_int_movie_genres_bridge_movie_id ................... [[33mSKIP[0m]
+40 of 47 SKIP test not_null_int_movie_languages_bridge_dlt_movie_id ............ [[33mSKIP[0m]
+41 of 47 SKIP test not_null_int_movie_languages_bridge_language_name ........... [[33mSKIP[0m]
+42 of 47 SKIP test not_null_int_movie_languages_bridge_movie_id ................ [[33mSKIP[0m]
+7 of 47 ERROR creating sql table model dbt_schema.int_movie_writers_bridge ..... [[31mERROR[0m in 3.61s]
+43 of 47 SKIP test dbt_utils_expression_is_true_int_movie_writers_bridge_writer_ordinal___0  [[33mSKIP[0m]
+44 of 47 SKIP test dbt_utils_unique_combination_of_columns_int_movie_writers_bridge_movie_id__writer_name  [[33mSKIP[0m]
+45 of 47 SKIP test not_null_int_movie_writers_bridge_dlt_movie_id .............. [[33mSKIP[0m]
+46 of 47 SKIP test not_null_int_movie_writers_bridge_movie_id .................. [[33mSKIP[0m]
+47 of 47 SKIP test not_null_int_movie_writers_bridge_writer_name ............... [[33mSKIP[0m]
+
+Finished running 7 table models, 40 data tests in 0 hours 0 minutes and 13.05 seconds (13.05s).
+
+[31mCompleted with 7 errors and 0 warnings:[0m
+
+  Database Error in model int_movie_directors_bridge (models/intermediate/int_movie_directors_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-2e3934a-1cf6ed7/run/mflix_snowflake/models/intermediate/int_movie_directors_bridge.sql
+
+  Database Error in model int_movie_flattened (models/intermediate/int_movie_flattened.sql)
+  000904 (42000): SQL compilation error: error line 6 at position 3
+  invalid identifier '_DLT_ID'
+  compiled code at target/dbt_intermediate-2e3934a-1cf6ed7/run/mflix_snowflake/models/intermediate/int_movie_flattened.sql
+
+  Database Error in model int_movie_countries_bridge (models/intermediate/int_movie_countries_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-2e3934a-1cf6ed7/run/mflix_snowflake/models/intermediate/int_movie_countries_bridge.sql
+
+  Database Error in model int_movie_cast_bridge (models/intermediate/int_movie_cast_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-2e3934a-1cf6ed7/run/mflix_snowflake/models/intermediate/int_movie_cast_bridge.sql
+
+  Database Error in model int_movie_genres_bridge (models/intermediate/int_movie_genres_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-2e3934a-1cf6ed7/run/mflix_snowflake/models/intermediate/int_movie_genres_bridge.sql
+
+  Database Error in model int_movie_languages_bridge (models/intermediate/int_movie_languages_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-2e3934a-1cf6ed7/run/mflix_snowflake/models/intermediate/int_movie_languages_bridge.sql
+
+  Database Error in model int_movie_writers_bridge (models/intermediate/int_movie_writers_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-2e3934a-1cf6ed7/run/mflix_snowflake/models/intermediate/int_movie_writers_bridge.sql
+
+Done. PASS=0 WARN=0 ERROR=7 SKIP=40 TOTAL=47

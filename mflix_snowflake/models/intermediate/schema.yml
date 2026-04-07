@@ -1,0 +1,244 @@
+version: 2
+
+models:
+  - name: int_movie_flattened
+    description: "One-row-per-movie intermediate model aggregated from nested staging tables with deterministic primary attributes and list fields."
+    meta:
+      layer: intermediate
+      grain: movie_id
+      owner: data-engineering
+    columns:
+      - name: movie_id
+        description: "Business movie identifier from source."
+        tests:
+          - not_null
+          - unique
+
+      - name: dlt_movie_id
+        description: "Technical dlt parent key used to rejoin flattened nested entities."
+        tests:
+          - not_null
+          - unique
+
+      - name: title
+        description: "Movie title."
+        tests:
+          - not_null:
+              config:
+                severity: warn
+
+      - name: year
+        description: "Movie release year."
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 1888"
+              config:
+                severity: warn
+
+      - name: released
+        description: "Movie release timestamp/date from source."
+
+      - name: runtime
+        description: "Movie runtime in minutes."
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+
+      - name: imdb_rating
+        description: "IMDb rating value from source movie record."
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "between 0 and 10"
+              config:
+                severity: warn
+
+      - name: imdb_votes
+        description: "IMDb vote count from source movie record."
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+
+      - name: primary_genre_name
+        description: "Primary genre selected by lowest ordinal."
+
+      - name: genre_names
+        description: "Distinct comma-separated genre names ordered alphabetically."
+
+      - name: primary_country_name
+        description: "Primary country selected by lowest ordinal."
+
+      - name: country_names
+        description: "Distinct comma-separated country names ordered alphabetically."
+
+      - name: primary_language_name
+        description: "Primary language selected by lowest ordinal."
+
+      - name: language_names
+        description: "Distinct comma-separated language names ordered alphabetically."
+
+      - name: primary_director_name
+        description: "Primary director selected by lowest ordinal."
+
+      - name: director_names
+        description: "Distinct comma-separated director names ordered alphabetically."
+
+      - name: primary_writer_name
+        description: "Primary writer selected by lowest ordinal."
+
+      - name: writer_names
+        description: "Distinct comma-separated writer names ordered alphabetically."
+
+      - name: cast_names
+        description: "Distinct comma-separated cast names ordered alphabetically."
+
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "movie_id is not null and dlt_movie_id is not null"
+
+  - name: int_movie_genres_bridge
+    description: "Bridge model with one deduplicated row per movie and genre."
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: dlt_movie_id
+        tests:
+          - not_null
+      - name: genre_name
+        tests:
+          - not_null
+      - name: genre_ordinal
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - movie_id
+            - genre_name
+
+  - name: int_movie_countries_bridge
+    description: "Bridge model with one deduplicated row per movie and country."
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: dlt_movie_id
+        tests:
+          - not_null
+      - name: country_name
+        tests:
+          - not_null
+      - name: country_ordinal
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - movie_id
+            - country_name
+
+  - name: int_movie_cast_bridge
+    description: "Bridge model with one deduplicated row per movie and cast member."
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: dlt_movie_id
+        tests:
+          - not_null
+      - name: cast_name
+        tests:
+          - not_null
+      - name: cast_ordinal
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - movie_id
+            - cast_name
+
+  - name: int_movie_directors_bridge
+    description: "Bridge model with one deduplicated row per movie and director."
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: dlt_movie_id
+        tests:
+          - not_null
+      - name: director_name
+        tests:
+          - not_null
+      - name: director_ordinal
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - movie_id
+            - director_name
+
+  - name: int_movie_languages_bridge
+    description: "Bridge model with one deduplicated row per movie and language."
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: dlt_movie_id
+        tests:
+          - not_null
+      - name: language_name
+        tests:
+          - not_null
+      - name: language_ordinal
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - movie_id
+            - language_name
+
+  - name: int_movie_writers_bridge
+    description: "Bridge model with one deduplicated row per movie and writer."
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+      - name: dlt_movie_id
+        tests:
+          - not_null
+      - name: writer_name
+        tests:
+          - not_null
+      - name: writer_ordinal
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: ">= 0"
+              config:
+                severity: warn
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - movie_id
+            - writer_name

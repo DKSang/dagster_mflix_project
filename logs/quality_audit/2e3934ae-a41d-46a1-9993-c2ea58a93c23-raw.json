@@ -1,0 +1,17 @@
+{
+  "run_id": "2e3934ae-a41d-46a1-9993-c2ea58a93c23",
+  "timestamp_utc": "2026-04-07T13:22:13.001500+00:00",
+  "layer": "raw",
+  "quality_status": "passed",
+  "soda_command": [
+    "soda",
+    "scan",
+    "-d",
+    "snowflake_raw",
+    "-c",
+    "/home/dksan/code/data-engineer/dagster-mflix/soda/configuration/configuration.yml",
+    "/home/dksan/code/data-engineer/dagster-mflix/soda/checks/check_ingest_raw.yml"
+  ],
+  "soda_stdout_tail": "[13:22:04] Soda Core 3.5.6\n[13:22:10] Scan summary:\n[13:22:10] 25/25 checks PASSED: \n[13:22:10]     comments in snowflake_raw\n[13:22:10]       Raw comments table has data [PASSED]\n[13:22:10]       No duplicate comment records [PASSED]\n[13:22:10]       No null movie_id in comments [PASSED]\n[13:22:10]       No null date in comments [PASSED]\n[13:22:10]     embedded_movies in snowflake_raw\n[13:22:10]       Raw embedded_movies table has data [PASSED]\n[13:22:10]       No null _id in embedded_movies [PASSED]\n[13:22:10]       No null title in embedded_movies [PASSED]\n[13:22:10]     embedded_movies__genres in snowflake_raw\n[13:22:10]       Raw genres table has data [PASSED]\n[13:22:10]       No null parent movie id in genres [PASSED]\n[13:22:10]       No null genre values [PASSED]\n[13:22:10]     embedded_movies__cast in snowflake_raw\n[13:22:10]       Raw cast table has data [PASSED]\n[13:22:10]       No null parent movie id in cast [PASSED]\n[13:22:10]       No null cast names [PASSED]\n[13:22:10]     embedded_movies__countries in snowflake_raw\n[13:22:10]       Raw countries table has data [PASSED]\n[13:22:10]       No null parent movie id in countries [PASSED]\n[13:22:10]       No null country values [PASSED]\n[13:22:10]     embedded_movies__directors in snowflake_raw\n[13:22:10]       Raw directors table has data [PASSED]\n[13:22:10]       No null parent movie id in directors [PASSED]\n[13:22:10]       No null director names [PASSED]\n[13:22:10]     embedded_movies__writers in snowflake_raw\n[13:22:10]       Raw writers table has data [PASSED]\n[13:22:10]       No null parent movie id in writers [PASSED]\n[13:22:10]       No null writer names [PASSED]\n[13:22:10]     embedded_movies__languages in snowflake_raw\n[13:22:10]       Raw languages table has data [PASSED]\n[13:22:10]       No null parent movie id in languages [PASSED]\n[13:22:10]       No null language values [PASSED]\n[13:22:10] All is good. No failures. No warnings. No errors.\n",
+  "soda_stderr_tail": ""
+}

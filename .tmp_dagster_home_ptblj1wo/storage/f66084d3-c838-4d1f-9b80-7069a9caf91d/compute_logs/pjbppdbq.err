@@ -1,0 +1,6 @@
+[32m2026-04-07 13:14:46 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - 402728 - LOGS_CAPTURED - Started capturing logs in process (pid: 402728).
+[32m2026-04-07 13:14:46 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - 402728 - raw_quality_gate - STEP_START - Started execution of step "raw_quality_gate".
+[32m2026-04-07 13:14:53 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - raw_quality_gate - Quality gate passed for raw layer. Audit written to /home/dksan/code/data-engineer/dagster-mflix/logs/quality_audit/f66084d3-c838-4d1f-9b80-7069a9caf91d-raw.json
+[32m2026-04-07 13:14:53 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - 402728 - raw_quality_gate - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-04-07 13:14:53 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - 402728 - raw_quality_gate - ASSET_MATERIALIZATION - Materialized value raw_quality_gate.
+[32m2026-04-07 13:14:53 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - 402728 - raw_quality_gate - STEP_SUCCESS - Finished execution of step "raw_quality_gate" in 6.69s.

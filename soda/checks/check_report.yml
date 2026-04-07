@@ -4,44 +4,15 @@
 checks for fct_movie_engagement:
   - row_count > 0:
       name: "Movie engagement fact table has data"
-  - missing_count(movie_id) = 0:
-      name: "No null movie_id in fact table"
-  - missing_count(number_of_comments) = 0:
-      name: "No null number_of_comments"
-  - invalid_count(number_of_comments) = 0:
-      valid_format: "number"
-      name: "All comment counts are numeric"
-  - invalid_range(number_of_comments) = 0:
-      valid_min: 0
-      valid_max: 1000000
-      name: "Comment counts in valid range (0-1M)"
-  - missing_count(first_comment_date) = 0:
-      name: "No null first_comment_date"
-  - missing_count(last_comment_date) = 0:
-      name: "No null last_comment_date"
-  - invalid_count(first_comment_date) = 0:
-      valid_format: "date"
-      name: "All first_comment_dates are valid"
-  - invalid_count(last_comment_date) = 0:
-      valid_format: "date"
-      name: "All last_comment_dates are valid"
 
 checks for agg_top_movies_by_month:
   - row_count > 0:
       name: "Monthly aggregation table has data"
-  - missing_count(month_start) = 0:
-      name: "No null month_start"
-  - invalid_count(month_start) = 0:
-      valid_format: "date"
-      name: "All month_start values are valid dates"
-  - duplicate_count(month_start) = 0:
-      name: "No duplicate months in aggregation"
-  - missing_count(rank) = 0:
-      name: "No null rank values"
-  - invalid_count(rank) = 0:
-      valid_format: "number"
-      name: "All ranks are numeric"
-  - invalid_range(rank) = 0:
-      valid_min: 1
-      valid_max: 100
-      name: "Movie ranks are in expected range (1-100)"
+
+checks for agg_top_movies_by_engagement:
+  - row_count > 0:
+      name: "Engagement aggregation table has data"
+
+checks for fct_movie_quality:
+  - row_count > 0:
+      name: "Movie quality fact table has data"

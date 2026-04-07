@@ -1,0 +1,20 @@
+# RBAC policy baseline for Story 3.4
+
+zones:
+  raw:
+    schema: MFLIX_RAW
+    read_role: ${SNOWFLAKE_ROLE_RAW_READER|dagster_role}
+    write_role: ${SNOWFLAKE_ROLE_RAW_WRITER|dagster_role}
+  staging:
+    schema: STAGING
+    read_role: ${SNOWFLAKE_ROLE_STAGING_READER|dagster_role}
+    write_role: ${SNOWFLAKE_ROLE_STAGING_WRITER|dagster_role}
+  mart:
+    schema: MART
+    read_role: ${SNOWFLAKE_ROLE_MART_READER|dagster_role}
+    write_role: ${SNOWFLAKE_ROLE_MART_WRITER|dagster_role}
+
+required_secret_env:
+  - SNOWFLAKE_ACCOUNT
+  - SNOWFLAKE_USER
+  - SNOWFLAKE_PASSWORD

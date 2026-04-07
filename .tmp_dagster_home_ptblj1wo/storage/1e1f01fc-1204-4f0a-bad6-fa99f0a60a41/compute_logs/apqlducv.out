@@ -1,0 +1,26 @@
+Running with dbt=1.8.8
+Registered adapter: snowflake=1.8.4
+Found 27 models, 93 data tests, 8 sources, 572 macros
+
+Concurrency: 1 threads (target='dev')
+
+1 of 7 START sql table model dbt_schema.fct_movie_engagement ................... [RUN]
+1 of 7 OK created sql table model dbt_schema.fct_movie_engagement .............. [[32mSUCCESS 1[0m in 3.91s]
+2 of 7 START test not_null_fct_movie_engagement_movie_id ....................... [RUN]
+2 of 7 PASS not_null_fct_movie_engagement_movie_id ............................. [[32mPASS[0m in 3.27s]
+3 of 7 START test relationships_fct_movie_engagement_primary_country_id__country_key__ref_dim_country_  [RUN]
+3 of 7 PASS relationships_fct_movie_engagement_primary_country_id__country_key__ref_dim_country_  [[32mPASS[0m in 1.77s]
+4 of 7 START test relationships_fct_movie_engagement_primary_director_id__director_id__ref_dim_directors_  [RUN]
+4 of 7 PASS relationships_fct_movie_engagement_primary_director_id__director_id__ref_dim_directors_  [[32mPASS[0m in 2.78s]
+5 of 7 START test relationships_fct_movie_engagement_primary_genre_id__genre_id__ref_dim_genres_  [RUN]
+5 of 7 PASS relationships_fct_movie_engagement_primary_genre_id__genre_id__ref_dim_genres_  [[32mPASS[0m in 2.82s]
+6 of 7 START test relationships_fct_movie_engagement_primary_language_id__language_id__ref_dim_languages_  [RUN]
+6 of 7 PASS relationships_fct_movie_engagement_primary_language_id__language_id__ref_dim_languages_  [[32mPASS[0m in 3.27s]
+7 of 7 START test relationships_fct_movie_engagement_primary_writer_id__writer_id__ref_dim_writers_  [RUN]
+7 of 7 PASS relationships_fct_movie_engagement_primary_writer_id__writer_id__ref_dim_writers_  [[32mPASS[0m in 2.82s]
+
+Finished running 1 table model, 6 data tests in 0 hours 0 minutes and 27.74 seconds (27.74s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=7 WARN=0 ERROR=0 SKIP=0 TOTAL=7

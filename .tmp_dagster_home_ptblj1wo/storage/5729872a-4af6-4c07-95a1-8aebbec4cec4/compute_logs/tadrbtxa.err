@@ -1,0 +1,41 @@
+[32m2026-04-07 13:42:10 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5729872a-4af6-4c07-95a1-8aebbec4cec4 - 470624 - LOGS_CAPTURED - Started capturing logs in process (pid: 470624).
+[32m2026-04-07 13:42:10 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5729872a-4af6-4c07-95a1-8aebbec4cec4 - 470624 - dbt_staging - STEP_START - Started execution of step "dbt_staging".
+[32m2026-04-07 13:42:10 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 5729872a-4af6-4c07-95a1-8aebbec4cec4 - dbt_staging - A dbt subsetted execution is not being performed. Using the default dbt selection arguments `['--select', 'staging.*']`.
+[32m2026-04-07 13:42:14 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 5729872a-4af6-4c07-95a1-8aebbec4cec4 - dbt_staging - Copying `/home/dksan/code/data-engineer/dagster-mflix/mflix_snowflake/target/partial_parse.msgpack` to `/home/dksan/code/data-engineer/dagster-mflix/mflix_snowflake/target/dbt_staging-5729872-f7517a0/partial_parse.msgpack` to take advantage of partial parsing.
+[32m2026-04-07 13:42:14 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 5729872a-4af6-4c07-95a1-8aebbec4cec4 - dbt_staging - Running dbt command: `/home/dksan/code/data-engineer/dagster-mflix/.venv/bin/dbt build --select staging.*`.
+[32m2026-04-07 13:42:25 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 5729872a-4af6-4c07-95a1-8aebbec4cec4 - dbt_staging - Forwarding interrupt signal to dbt command: `/home/dksan/code/data-engineer/dagster-mflix/.venv/bin/dbt build --select staging.*`.
+[32m2026-04-07 13:42:32 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 5729872a-4af6-4c07-95a1-8aebbec4cec4 - dbt_staging - dbt process terminated with exit code `2`.
+[32m2026-04-07 13:42:32 +0000[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 5729872a-4af6-4c07-95a1-8aebbec4cec4 - 470624 - dbt_staging - STEP_FAILURE - Execution of step "dbt_staging" failed.
+
+dagster._core.errors.DagsterExecutionInterruptedError
+
+Stack Trace:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 247, in dagster_event_sequence_for_step
+    yield from check.generator(step_events)
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_step.py", line 504, in core_dagster_event_sequence_for_step
+    for user_event in _step_output_error_checked_user_event_sequence(
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_step.py", line 183, in _step_output_error_checked_user_event_sequence
+    for user_event in user_event_sequence:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_step.py", line 88, in _process_asset_results_to_events
+    for user_event in user_event_sequence:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute.py", line 188, in execute_core_compute
+    for step_output in _yield_compute_results(step_context, inputs, compute_fn, compute_context):
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute.py", line 157, in _yield_compute_results
+    for event in iterate_with_context(
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 394, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/dagster_mflix/assets/dbt_staging.py", line 14, in dbt_staging
+    yield from dbt.cli(["build"], context=context).stream()
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dbt/core/dbt_event_iterator.py", line 215, in __next__
+    return next(self._inner_iterator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 288, in _stream_asset_events
+    for event in self.stream_raw_events():
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 341, in stream_raw_events
+    for raw_event in self._stdout or self._stream_stdout():
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 431, in _stream_stdout
+    for raw_line in self.process.stdout or []:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_utils/interrupts.py", line 81, in _new_signal_handler
+    raise error_cls()
+[0m

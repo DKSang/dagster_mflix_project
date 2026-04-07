@@ -1,7 +1,7 @@
 with base as (
     select distinct
         genre_name
-    from {{ ref('stg_movie_genres') }}
+    from {{ ref('int_movie_genres_bridge') }}
     where genre_name is not null
 )
 

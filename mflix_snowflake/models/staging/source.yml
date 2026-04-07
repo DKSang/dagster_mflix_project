@@ -7,34 +7,49 @@ sources:
       - name: comments
         meta:
           dagster:
+            asset_key: [raw, dlt_mongodb_comments]
             description: "This table contains all the comments made by users on movies."
-            asset_key: [dlt_mongodb_comments]
       - name: embedded_movies
         meta:
           dagster:
+            asset_key: [raw, dlt_mongodb_embedded_movies]
             description: "This table contains all the movie details, including embedded fields for genres, countries, cast, directors, writers, and languages."
-            asset_key: [dlt_mongodb_embedded_movies]
       - name: embedded_movies__genres
         meta:
           dagster:
+            asset_key: [raw, dlt_mongodb_embedded_movies__genres]
             description: "This table contains the genres associated with each movie, extracted from the embedded_movies table."
       - name: embedded_movies__countries
         meta:
           dagster:
+            asset_key: [raw, dlt_mongodb_embedded_movies__countries]
             description: "This table contains the countries associated with each movie, extracted from the embedded_movies table."
       - name: embedded_movies__cast
         meta:
           dagster:
+            asset_key: [raw, dlt_mongodb_embedded_movies__cast]
             description: "This table contains the cast members associated with each movie, extracted from the embedded_movies table."
       - name: embedded_movies__directors
         meta:
           dagster:
+            asset_key: [raw, dlt_mongodb_embedded_movies__directors]
             description: "This table contains the directors associated with each movie, extracted from the embedded_movies table."
       - name: embedded_movies__writers
         meta:
           dagster:
+            asset_key: [raw, dlt_mongodb_embedded_movies__writers]
             description: "This table contains the writers associated with each movie, extracted from the embedded_movies table."
       - name: embedded_movies__languages
         meta:
           dagster:
+            asset_key: [raw, dlt_mongodb_embedded_movies__languages]
             description: "This table contains the languages associated with each movie, extracted from the embedded_movies table."
+  - name: dagster_quality
+    database: dagster_db
+    schema: mflix
+    tables:
+      - name: raw_quality_gate
+        meta:
+          dagster:
+            asset_key: [raw_quality_gate]
+            description: "Synthetic source used only for Dagster dependency wiring from dbt staging models to raw quality gate."

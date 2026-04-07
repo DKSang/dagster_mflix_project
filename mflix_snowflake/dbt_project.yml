@@ -38,3 +38,6 @@ models:
     marts:
       materialized: table
       snowflake_warehouse: dagster_wh 
+    intermediate:
+      materialized: table
+      snowflake_warehouse: dagster_wh

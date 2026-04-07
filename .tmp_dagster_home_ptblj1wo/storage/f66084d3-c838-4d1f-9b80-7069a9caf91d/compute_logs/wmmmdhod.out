@@ -1,0 +1,28 @@
+Running with dbt=1.8.8
+Registered adapter: snowflake=1.8.4
+Found 29 models, 104 data tests, 8 sources, 572 macros
+
+Concurrency: 4 threads (target='dev')
+
+1 of 8 START sql view model dbt_schema.stg_comments ............................ [RUN]
+2 of 8 START sql view model dbt_schema.stg_embedded_movies ..................... [RUN]
+3 of 8 START sql view model dbt_schema.stg_movie_cast .......................... [RUN]
+4 of 8 START sql view model dbt_schema.stg_movie_countries ..................... [RUN]
+3 of 8 OK created sql view model dbt_schema.stg_movie_cast ..................... [[32mSUCCESS 1[0m in 3.36s]
+5 of 8 START sql view model dbt_schema.stg_movie_directors ..................... [RUN]
+2 of 8 OK created sql view model dbt_schema.stg_embedded_movies ................ [[32mSUCCESS 1[0m in 3.54s]
+6 of 8 START sql view model dbt_schema.stg_movie_genres ........................ [RUN]
+4 of 8 OK created sql view model dbt_schema.stg_movie_countries ................ [[32mSUCCESS 1[0m in 3.62s]
+7 of 8 START sql view model dbt_schema.stg_movie_languages ..................... [RUN]
+1 of 8 OK created sql view model dbt_schema.stg_comments ....................... [[32mSUCCESS 1[0m in 3.97s]
+8 of 8 START sql view model dbt_schema.stg_movie_writers ....................... [RUN]
+5 of 8 OK created sql view model dbt_schema.stg_movie_directors ................ [[32mSUCCESS 1[0m in 2.83s]
+6 of 8 OK created sql view model dbt_schema.stg_movie_genres ................... [[32mSUCCESS 1[0m in 2.76s]
+7 of 8 OK created sql view model dbt_schema.stg_movie_languages ................ [[32mSUCCESS 1[0m in 3.31s]
+8 of 8 OK created sql view model dbt_schema.stg_movie_writers .................. [[32mSUCCESS 1[0m in 3.15s]
+
+Finished running 8 view models in 0 hours 0 minutes and 13.79 seconds (13.79s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8

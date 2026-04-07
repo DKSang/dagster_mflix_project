@@ -1,9 +1,0 @@
-[32m2026-04-06 06:36:13 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 3f42ed84-7d73-4e44-93f8-5e1f519d120c - 44714 - LOGS_CAPTURED - Started capturing logs in process (pid: 44714).
-[32m2026-04-06 06:36:13 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 3f42ed84-7d73-4e44-93f8-5e1f519d120c - 44714 - mongodb - STEP_START - Started execution of step "mongodb".
-/home/dksan/code/data-engineer/dagster-mflix/dagster_mflix/mongodb/helpers.py:208: Dlt100DeprecationWarning: Use `map_nested_values_in_place` instead. Deprecated in dlt 1.0.0 to be removed in 2.0.0.
-  yield map_nested_in_place(convert_mongo_objs, docs_slice)
-[32m2026-04-06 06:40:51 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 3f42ed84-7d73-4e44-93f8-5e1f519d120c - 44714 - mongodb - STEP_OUTPUT - Yielded output "dlt_mongodb_embedded_movies" of type "Nothing". (Type check passed).
-[32m2026-04-06 06:40:52 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 3f42ed84-7d73-4e44-93f8-5e1f519d120c - 44714 - mongodb - ASSET_MATERIALIZATION - Materialized value dlt_mongodb_embedded_movies.
-[32m2026-04-06 06:40:52 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 3f42ed84-7d73-4e44-93f8-5e1f519d120c - 44714 - mongodb - STEP_OUTPUT - Yielded output "dlt_mongodb_comments" of type "Nothing". (Type check passed).
-[32m2026-04-06 06:40:52 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 3f42ed84-7d73-4e44-93f8-5e1f519d120c - 44714 - mongodb - ASSET_MATERIALIZATION - Materialized value dlt_mongodb_comments.
-[32m2026-04-06 06:40:52 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 3f42ed84-7d73-4e44-93f8-5e1f519d120c - 44714 - mongodb - STEP_SUCCESS - Finished execution of step "mongodb" in 5m3s.

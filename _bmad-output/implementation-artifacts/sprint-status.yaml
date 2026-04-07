@@ -35,48 +35,48 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 
 generated: '2026-04-05T15:13:13+00:00'
-last_updated: '2026-04-05T15:32:28+00:00'
+last_updated: '2026-04-07T17:30:00+00:00'
 project: dagster-mflix
 project_key: NOKEY
 tracking_system: file-system
 story_location: '{project-root}/_bmad-output/implementation-artifacts'
 
 development_status:
-  epic-1: in-progress
-  1-1-configure-mongodb-source-and-raw-zone-contracts: ready-for-dev
-  1-2-implement-dlt-raw-ingestion-for-core-collections: ready-for-dev
-  1-3-implement-ingest-job-orchestration-and-scheduling: backlog
-  1-4-add-retry-and-recovery-controls-for-ingestion: backlog
-  1-5-expose-ingestion-lineage-and-run-history: backlog
+  epic-1: done
+  1-1-configure-mongodb-source-and-raw-zone-contracts: done
+  1-2-implement-dlt-raw-ingestion-for-core-collections: done
+  1-3-implement-ingest-job-orchestration-and-scheduling: done
+  1-4-add-retry-and-recovery-controls-for-ingestion: done
+  1-5-expose-ingestion-lineage-and-run-history: done
   epic-1-retrospective: optional
 
-  epic-2: backlog
-  2-1-build-core-staging-models-from-raw-sources: backlog
-  2-2-implement-nested-structure-flattening-models: backlog
-  2-3-build-dimension-and-fact-mart-models: backlog
-  2-4-build-analytical-aggregate-models: backlog
-  2-5-orchestrate-transform-job-execution-flow: backlog
+  epic-2: done
+  2-1-build-core-staging-models-from-raw-sources: done
+  2-2-implement-nested-structure-flattening-models: done
+  2-3-build-dimension-and-fact-mart-models: done
+  2-4-build-analytical-aggregate-models: done
+  2-5-orchestrate-transform-job-execution-flow: done
   epic-2-retrospective: optional
 
-  epic-3: backlog
-  3-1-define-dbt-and-soda-quality-rule-baseline: backlog
-  3-2-implement-quality-job-with-publish-blocking: backlog
-  3-3-add-freshness-and-volume-anomaly-controls: backlog
-  3-4-enforce-rbac-and-secret-handling-policies: backlog
-  3-5-implement-audit-and-reproducibility-trace-controls: backlog
+  epic-3: done
+  3-1-define-dbt-and-soda-quality-rule-baseline: done
+  3-2-implement-quality-job-with-publish-blocking: done
+  3-3-add-freshness-and-volume-anomaly-controls: done
+  3-4-enforce-rbac-and-secret-handling-policies: done
+  3-5-implement-audit-and-reproducibility-trace-controls: done
   epic-3-retrospective: optional
 
-  epic-4: backlog
-  4-1-implement-unit-tests-for-helpers-and-transform-utilities: backlog
-  4-2-implement-asset-and-job-level-tests: backlog
-  4-3-implement-dbt-model-assertions-and-relationship-tests: backlog
-  4-4-add-failure-mode-tests-for-missing-artifacts-and-retry-paths: backlog
-  4-5-enforce-unified-ci-quality-gates: backlog
+  epic-4: done
+  4-1-implement-unit-tests-for-helpers-and-transform-utilities: done
+  4-2-implement-asset-and-job-level-tests: done
+  4-3-implement-dbt-model-assertions-and-relationship-tests: done
+  4-4-add-failure-mode-tests-for-missing-artifacts-and-retry-paths: done
+  4-5-enforce-unified-ci-quality-gates: done
   epic-4-retrospective: optional
 
-  epic-5: backlog
-  5-1-publish-and-version-mart-data-contracts: backlog
-  5-2-enable-dashboard-consumption-for-core-analytics-outputs: backlog
+  epic-5: in-progress
+  5-1-publish-and-version-mart-data-contracts: done
+  5-2-enable-dashboard-consumption-for-core-analytics-outputs: done
   5-3-implement-new-entity-onboarding-pattern: backlog
   5-4-prepare-bi-api-downstream-integration-readiness: backlog
   epic-5-retrospective: optional

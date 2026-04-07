@@ -1,4 +1,4 @@
-data_source snowflake_wh:
+data_source snowflake_raw:
   type: snowflake
   connection:
     account: ${SNOWFLAKE_ACCOUNT}
@@ -8,6 +8,20 @@ data_source snowflake_wh:
     database: dagster_db
     warehouse: dagster_wh
     schema: mflix
+    session_parameters:
+      QUERY_TAG: "soda_data_quality"
+      STATEMENT_TIMEOUT_IN_SECONDS: 300
+
+data_source snowflake_analytics:
+  type: snowflake
+  connection:
+    account: ${SNOWFLAKE_ACCOUNT}
+    username: ${SNOWFLAKE_USER}
+    password: ${SNOWFLAKE_PASSWORD}
+    role: dagster_role
+    database: dagster_db
+    warehouse: dagster_wh
+    schema: dbt_schema
     session_parameters:
       QUERY_TAG: "soda_data_quality"
       STATEMENT_TIMEOUT_IN_SECONDS: 300

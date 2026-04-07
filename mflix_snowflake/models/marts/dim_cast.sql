@@ -1,7 +1,7 @@
 with base as (
     select distinct
         cast_name
-    from {{ ref('stg_movie_cast') }}
+    from {{ ref('int_movie_cast_bridge') }}
     where cast_name is not null
 )
 

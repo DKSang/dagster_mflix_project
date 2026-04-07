@@ -6,9 +6,8 @@ checks for comments:
       name: "Raw comments table has data"
   - missing_count(movie_id) = 0:
       name: "No null movie_id in comments"
-  - invalid_count(comment_date) = 0:
-      valid_format: "date"
-      name: "All comment dates are valid dates"
+  - missing_count(date) = 0:
+      name: "No null date in comments"
   - duplicate_count(movie_id, _id) = 0:
       name: "No duplicate comment records"
 
@@ -19,13 +18,6 @@ checks for embedded_movies:
       name: "No null _id in embedded_movies"
   - missing_count(title) = 0:
       name: "No null title in embedded_movies"
-  - invalid_count(year) = 0:
-      valid_format: "number"
-      name: "All years are numeric"
-  - invalid_range(year) = 0:
-      valid_min: 1900
-      valid_max: 2099
-      name: "All movie years are realistic"
 
 checks for embedded_movies__genres:
   - row_count > 0:

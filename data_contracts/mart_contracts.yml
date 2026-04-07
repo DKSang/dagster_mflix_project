@@ -1,0 +1,199 @@
+contract: mart_data_contract
+version: 1.0.0
+owner: analytics-platform
+status: active
+updated_at: 2026-04-07
+release_notes: data_contracts/mart_contracts_release_notes.md
+
+datasets:
+  - name: dim_movies
+    schema: MART
+    grain: one row per movie_id
+    keys:
+      primary:
+        - movie_id
+      foreign: []
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: movie_id
+      - name: title
+      - name: year
+      - name: released
+      - name: runtime
+
+  - name: dim_genres
+    schema: MART
+    grain: one row per genre_id
+    keys:
+      primary:
+        - genre_id
+      foreign: []
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: genre_id
+      - name: genre_name
+
+  - name: dim_country
+    schema: MART
+    grain: one row per country_key
+    keys:
+      primary:
+        - country_key
+      foreign: []
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: country_key
+      - name: country_code
+      - name: country_name
+
+  - name: dim_date
+    schema: MART
+    grain: one row per date_key
+    keys:
+      primary:
+        - date_key
+      foreign: []
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: date_key
+      - name: year_number
+      - name: month_number
+      - name: month_start
+
+  - name: fct_movie_engagement
+    schema: MART
+    grain: one row per movie_id
+    keys:
+      primary:
+        - movie_id
+      foreign:
+        - primary_genre_id -> dim_genres.genre_id
+        - primary_country_id -> dim_country.country_key
+        - primary_language_id -> dim_languages.language_id
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: movie_id
+      - name: total_views
+      - name: total_watch_time
+      - name: unique_viewers
+      - name: completion_rate
+
+  - name: fct_movie_quality
+    schema: MART
+    grain: one row per movie_id
+    keys:
+      primary:
+        - movie_id
+      foreign:
+        - primary_genre_id -> dim_genres.genre_id
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: movie_id
+      - name: imdb_rating
+      - name: imdb_votes
+      - name: rating_bucket
+      - name: weighted_quality_score
+
+  - name: fct_movie_consumption_daily
+    schema: MART
+    grain: one row per movie_id and date_key
+    keys:
+      primary:
+        - movie_id
+        - date_key
+      foreign:
+        - movie_id -> dim_movies.movie_id
+        - date_key -> dim_date.date_key
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: movie_id
+      - name: date_key
+      - name: total_views
+      - name: total_watch_time
+      - name: unique_viewers
+      - name: completion_rate
+      - name: avg_watch_time
+
+  - name: agg_top_movies_by_month
+    schema: MART
+    grain: top records per month_start
+    keys:
+      primary:
+        - month_start
+        - rank
+      foreign:
+        - movie_id -> dim_movies.movie_id
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: month_start
+      - name: movie_id
+      - name: rank
+      - name: total_views
+      - name: total_watch_time
+
+  - name: agg_top_movies_by_engagement
+    schema: MART
+    grain: top records per month_start
+    keys:
+      primary:
+        - month_start
+        - rank
+      foreign:
+        - movie_id -> dim_movies.movie_id
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: month_start
+      - name: movie_id
+      - name: rank
+      - name: engagement_score
+
+  - name: agg_movie_country_daily
+    schema: MART
+    grain: one row per movie_id and date_key and country_key
+    keys:
+      primary:
+        - movie_id
+        - date_key
+        - country_key
+      foreign:
+        - movie_id -> dim_movies.movie_id
+        - date_key -> dim_date.date_key
+        - country_key -> dim_country.country_key
+    status: active
+    sla:
+      freshness: daily
+      max_lag_hours: 24
+    columns:
+      - name: movie_id
+      - name: date_key
+      - name: country_key
+      - name: country_code
+      - name: total_views
+      - name: total_watch_time

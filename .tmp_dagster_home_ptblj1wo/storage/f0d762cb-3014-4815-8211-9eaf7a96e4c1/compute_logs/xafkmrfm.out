@@ -1,0 +1,30 @@
+Running with dbt=1.8.8
+Registered adapter: snowflake=1.8.4
+Found 29 models, 104 data tests, 9 sources, 572 macros
+
+Concurrency: 4 threads (target='dev')
+
+1 of 9 START sql table model dbt_schema.fct_movie_consumption_daily ............ [RUN]
+1 of 9 OK created sql table model dbt_schema.fct_movie_consumption_daily ....... [[32mSUCCESS 1[0m in 4.18s]
+2 of 9 START test dbt_utils_expression_is_true_fct_movie_consumption_daily_avg_watch_time___0  [RUN]
+3 of 9 START test dbt_utils_expression_is_true_fct_movie_consumption_daily_completion_rate___0  [RUN]
+4 of 9 START test dbt_utils_expression_is_true_fct_movie_consumption_daily_total_views___0  [RUN]
+5 of 9 START test dbt_utils_expression_is_true_fct_movie_consumption_daily_total_watch_time___0  [RUN]
+4 of 9 PASS dbt_utils_expression_is_true_fct_movie_consumption_daily_total_views___0  [[32mPASS[0m in 3.53s]
+6 of 9 START test dbt_utils_expression_is_true_fct_movie_consumption_daily_unique_viewers___0  [RUN]
+5 of 9 PASS dbt_utils_expression_is_true_fct_movie_consumption_daily_total_watch_time___0  [[32mPASS[0m in 3.62s]
+7 of 9 START test dbt_utils_unique_combination_of_columns_fct_movie_consumption_daily_movie_id__date_key  [RUN]
+2 of 9 PASS dbt_utils_expression_is_true_fct_movie_consumption_daily_avg_watch_time___0  [[32mPASS[0m in 4.09s]
+8 of 9 START test not_null_fct_movie_consumption_daily_date_key ................ [RUN]
+3 of 9 PASS dbt_utils_expression_is_true_fct_movie_consumption_daily_completion_rate___0  [[32mPASS[0m in 5.03s]
+9 of 9 START test not_null_fct_movie_consumption_daily_movie_id ................ [RUN]
+6 of 9 PASS dbt_utils_expression_is_true_fct_movie_consumption_daily_unique_viewers___0  [[32mPASS[0m in 3.01s]
+8 of 9 PASS not_null_fct_movie_consumption_daily_date_key ...................... [[32mPASS[0m in 2.99s]
+7 of 9 PASS dbt_utils_unique_combination_of_columns_fct_movie_consumption_daily_movie_id__date_key  [[32mPASS[0m in 3.43s]
+9 of 9 PASS not_null_fct_movie_consumption_daily_movie_id ...................... [[32mPASS[0m in 2.79s]
+
+Finished running 1 table model, 8 data tests in 0 hours 0 minutes and 19.04 seconds (19.04s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=9 WARN=0 ERROR=0 SKIP=0 TOTAL=9

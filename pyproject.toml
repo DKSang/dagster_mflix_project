@@ -22,6 +22,8 @@ dependencies = [
     "dbt-snowflake>=1.8.4",
     "dagster-dbt>=0.26.0",
     "soda-core-snowflake>=3.5.6",
+    "bs4>=0.0.2",
+    "python-docx>=1.2.0",
 ]
 
 [tool.dagster]

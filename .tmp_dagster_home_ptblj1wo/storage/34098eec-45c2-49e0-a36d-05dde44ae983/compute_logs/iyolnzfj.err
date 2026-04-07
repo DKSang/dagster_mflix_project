@@ -1,0 +1,6 @@
+[32m2026-04-07 14:36:52 +0000[0m - dagster - [34mDEBUG[0m - quality_job - 34098eec-45c2-49e0-a36d-05dde44ae983 - 605133 - LOGS_CAPTURED - Started capturing logs in process (pid: 605133).
+[32m2026-04-07 14:36:52 +0000[0m - dagster - [34mDEBUG[0m - quality_job - 34098eec-45c2-49e0-a36d-05dde44ae983 - 605133 - anomaly_quality_gate - STEP_START - Started execution of step "anomaly_quality_gate".
+[32m2026-04-07 14:37:02 +0000[0m - dagster - [34mINFO[0m - quality_job - 34098eec-45c2-49e0-a36d-05dde44ae983 - anomaly_quality_gate - Quality gate passed for anomaly layer. Audit written to /home/dksan/code/data-engineer/dagster-mflix/logs/quality_audit/34098eec-45c2-49e0-a36d-05dde44ae983-anomaly.json
+[32m2026-04-07 14:37:02 +0000[0m - dagster - [34mDEBUG[0m - quality_job - 34098eec-45c2-49e0-a36d-05dde44ae983 - 605133 - anomaly_quality_gate - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
+[32m2026-04-07 14:37:02 +0000[0m - dagster - [34mDEBUG[0m - quality_job - 34098eec-45c2-49e0-a36d-05dde44ae983 - 605133 - anomaly_quality_gate - ASSET_MATERIALIZATION - Materialized value anomaly_quality_gate.
+[32m2026-04-07 14:37:02 +0000[0m - dagster - [34mDEBUG[0m - quality_job - 34098eec-45c2-49e0-a36d-05dde44ae983 - 605133 - anomaly_quality_gate - STEP_SUCCESS - Finished execution of step "anomaly_quality_gate" in 9.84s.

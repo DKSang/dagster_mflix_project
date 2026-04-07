@@ -9,7 +9,7 @@ with base as (
       partition by date_trunc('month', released)
       order by imdb_rating desc, imdb_votes desc
     ) as rn
-  from {{ ref('stg_embedded_movies') }}
+  from {{ ref('int_movie_flattened') }}
   where released is not null
 )
 

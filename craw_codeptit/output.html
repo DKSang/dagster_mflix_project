@@ -1,0 +1,3660 @@
+<!DOCTYPE html>
+<html lang="vi">
+ <head>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+  <meta charset="utf-8"/>
+  <link href="/favicon.png" rel="shortcut icon"/>
+  <meta content="9y4stMfVtPsS5a19fDDOKiJYbRVNtU6KrRHdcunR" name="csrf-token"/>
+  <title>
+   Bài tập
+  </title>
+  <!-- Scripts -->
+  <script src="https://code.ptit.edu.vn/js/app.js">
+  </script>
+  <!-- Styles -->
+  <link href="https://code.ptit.edu.vn/css/app.css" rel="stylesheet"/>
+  <link href="https://code.ptit.edu.vn/2020/css/style.css?v=2.2.1" rel="stylesheet"/>
+  <link href="https://code.ptit.edu.vn/2020/font/fontas/css/font-awesome.min.css" rel="stylesheet"/>
+  <link href="https://code.ptit.edu.vn/2020/js/datetime/jquery.datetimepicker.css" rel="stylesheet" type="text/css"/>
+  <!-- Default Theme (Core) -->
+  <link href="https://code.ptit.edu.vn/2020/js/pickadate/lib/themes/default.css" rel="stylesheet"/>
+  <!-- Default Theme (Date Picker) -->
+  <link href="https://code.ptit.edu.vn/2020/js/pickadate/lib/themes/default.date.css" rel="stylesheet"/>
+  <!-- Default Theme (Time Picker If Needed)-->
+  <link href="https://code.ptit.edu.vn/2020/js/pickadate/lib/themes/default.time.css" rel="stylesheet"/>
+  <!-- For RTL Layout -->
+  <link href="https://code.ptit.edu.vn/2020/js/pickadate/lib/themes/rtl.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="container-fluid">
+   <!-- NAVIGATION BAR  -->
+   <div class="nav">
+    <div class="row">
+     <div class="menu__icon">
+      <a href="javascript:void(0);" onclick="clickMenu()">
+       <i class="fa fa-bars">
+       </i>
+      </a>
+     </div>
+     <div class="col-6 menu">
+      <div class="nav__menu" id="nav__menu">
+       <div class="nav__menu__item" id="nav__logo">
+        <a class="nav__menu__item__logo" href="/">
+         <img alt="" src="https://code.ptit.edu.vn/2020/images/logo_ptit.png"/>
+        </a>
+       </div>
+       <div class="nav__menu__item homepage">
+        <a href="/">
+         Trang chủ
+        </a>
+       </div>
+       <div class="nav__menu__item">
+        <a href="https://code.ptit.edu.vn/student/contest">
+         Thực hành
+        </a>
+       </div>
+       <div class="nav__menu__item">
+        <a href="https://code.ptit.edu.vn/student/contest/K051UW1jVXdxZEl3WEFBc2M1OWNBZz09">
+         Bài tập
+        </a>
+       </div>
+       <div class="nav__menu__item">
+        <a href="https://code.ptit.edu.vn/student/history">
+         Lịch sử
+        </a>
+       </div>
+       <div class="nav__menu__item">
+        <a href="https://code.ptit.edu.vn/student/support">
+         Hỗ trợ
+        </a>
+       </div>
+      </div>
+     </div>
+     <div class="col-6">
+      <div class="nav__profile" id="nav__profile">
+       <div class="nav__profile__img nav__lang">
+        <img alt="" onclick="toggleMenu('lang__dropdown')" src="https://code.ptit.edu.vn/2020/images/VN.png"/>
+        <div class="nav__profile__menu lang__dropdown disappear">
+         <ul>
+          <li onclick="location.href='https://code.ptit.edu.vn/change-language/en'">
+           <img alt="" src="https://code.ptit.edu.vn/2020/images/Eng.png"/>
+           English
+          </li>
+         </ul>
+        </div>
+       </div>
+       <div class="nav__profile__img nav__profile__user">
+        <img alt="" class="nav__profile__avatar" onclick="toggleMenu('profile__dropdown')" src="https://cdn-icpc.ptit.edu.vn/ptitcode/profile/aGf1uJY1lwP0LjD6YAj5voxBk9KqPOcIhCNWoPv2.jpg"/>
+        <div class="nav__profile__menu profile__dropdown disappear">
+         <ul>
+          <li>
+           <p class="nav__profile__menu__name">
+            Dương Kim Sang
+           </p>
+           <p class="nav__profile__menu__code">
+            B24DCCE236
+           </p>
+          </li>
+          <li>
+           <a href="https://code.ptit.edu.vn/user/profile">
+            Hồ sơ
+           </a>
+          </li>
+          <li>
+           <a href="https://code.ptit.edu.vn/student/courses">
+            Lớp học
+           </a>
+          </li>
+          <li>
+           <a href="https://code.ptit.edu.vn/logout" onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+            Đăng xuất
+           </a>
+           <form action="https://code.ptit.edu.vn/logout" id="logout-form" method="POST" style="display: none;">
+            <input name="_token" type="hidden" value="9y4stMfVtPsS5a19fDDOKiJYbRVNtU6KrRHdcunR"/>
+           </form>
+          </li>
+         </ul>
+        </div>
+        <button onclick="toggleMenu('profile__dropdown')">
+         <i aria-hidden="true" class="fa fa-caret-down">
+         </i>
+        </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="username container-fluid">
+    <p>
+     Dương Kim Sang (B24DCCE236)
+     <span class="ml-1" id="timeleft">
+     </span>
+    </p>
+   </div>
+   <div class="wrapper">
+    <div class="main--fluid">
+     <div class="classlist__confirm__popup disappear">
+      <div class="classlist__confirm__popup__main">
+       <p class="classlist__confirm__popup__main__title">
+        <img alt="" src="https://code.ptit.edu.vn/2020/images/544570@2x.png"/>
+        Xác nhận nộp bài
+       </p>
+       <p class="classlist__confirm__popup__main__des">
+        <b>
+         Hãy nhớ lưu kết quả thành công trước khi nộp.
+        </b>
+        Sau khi nộp bài sẽ không thể tiếp tục làm bài, Bạn có chắc chắn muốn nộp bài?
+       </p>
+       <div class="classlist__confirm__popup__main__btn">
+        <button onclick="finish_contest('K051UW1jVXdxZEl3WEFBc2M1OWNBZz09');" style="width: fit-content;">
+         Nộp bài sớm
+        </button>
+        <button onclick="$('.classlist__confirm__popup').toggleClass('disappear')">
+         Hủy
+        </button>
+       </div>
+      </div>
+     </div>
+     <div class="classlist__success__popup disappear" id="classlist__success__popup">
+      <div class="classlist__success__popup__main">
+       <p class="classlist__success__popup__main__title">
+        <img alt="" src="https://code.ptit.edu.vn/2020/images/929440@2x.png"/>
+        Xác nhận nộp bài
+       </p>
+       <p class="classlist__success__popup__main__des">
+        Đã nộp bài!
+       </p>
+       <div class="classlist__success__popup__main__btn">
+        <button onclick="close_status();">
+         Đóng
+        </button>
+       </div>
+      </div>
+     </div>
+     <div class="classlist__success__popup disappear" id="save_result_response" onclick="popup_disappear('classlist__success__popup')">
+      <div class="classlist__success__popup__main">
+       <p class="classlist__success__popup__main__title">
+        <img alt="" src="https://code.ptit.edu.vn/2020/images/929440@2x.png"/>
+        Lưu kết quả thành công
+       </p>
+      </div>
+     </div>
+     <div class="contest">
+      <div class="admin__ques__nav">
+       <div class="admin__ques__nav__top">
+        <span class="admin__ques__nav__title">
+         Bài tập
+        </span>
+        <a href="javascript:void(0);" onclick="save_result();" style="background-color: #38c172;">
+         Lưu kết quả
+        </a>
+        <a href="javascript:void(0);" onclick="$('.classlist__confirm__popup').toggleClass('disappear')">
+         Nộp bài sớm
+        </a>
+       </div>
+       <span style="color:#e3342f">
+        Sinh viên chú ý thường xuyên lưu kết quả
+       </span>
+      </div>
+      <div class="setting__main__popup disappear" id="save_result_response" onclick="popup_disappear('setting__main__popup')">
+       <img alt="" src="https://code.ptit.edu.vn/2020/images/double-tick-indicator.png"/>
+       <p>
+        Lưu kết quả thành công
+       </p>
+      </div>
+      <table class="contest__prob__table">
+       <tbody>
+        <tr>
+         <div id="mc_1" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 1.
+          </b>
+          <p>
+           Trường hợp đồ thị được biểu diễn dưới dạng danh sách kề có n đỉnh m cạnh, độ phức tạp của thuật toán Breadth First Search có giá trị là bao nhiêu?
+          </p>
+         </span>
+         <br/>
+         <label for="option_1718">
+          <input checked="" data-mc-question="321" data-mc-question-index="1" id="option_1718" name="mc_1" type="radio" value="1718"/>
+          A.
+          <p>
+           Các phương án khác đều sai.
+          </p>
+         </label>
+         <br/>
+         <label for="option_1553">
+          <input data-mc-question="321" data-mc-question-index="1" id="option_1553" name="mc_1" type="radio" value="1553"/>
+          B.
+          <p>
+           O(n2.m)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1551">
+          <input data-mc-question="321" data-mc-question-index="1" id="option_1551" name="mc_1" type="radio" value="1551"/>
+          C.
+          <p>
+           O(n2)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1552">
+          <input data-mc-question="321" data-mc-question-index="1" id="option_1552" name="mc_1" type="radio" value="1552"/>
+          D.
+          <p>
+           O(n)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1554">
+          <input data-mc-question="321" data-mc-question-index="1" id="option_1554" name="mc_1" type="radio" value="1554"/>
+          E.
+          <p>
+           O(n.m)
+          </p>
+         </label>
+         <br/>
+        </tr>
+        <tr>
+         <div id="mc_2" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 2.
+          </b>
+          <p>
+           Đồ thị vô hướng G = (V, E) gồm 8 đỉnh biểu diễn dưới dạng ma trận kề như bên dưới. Sử dụng thuật toán BFS để tìm kiếm đường đi từ đỉnh 1 đến đỉnh 8?
+           <br/>
+           0 1 1 1 0 0 0 0
+           <br/>
+           1 0 1 1 0 1 0 0
+           <br/>
+           1 1 0 1 1 0 0 0
+           <br/>
+           1 1 1 0 0 0 1 0
+           <br/>
+           0 0 1 0 0 1 1 1
+           <br/>
+           0 1 0 0 1 0 1 0
+           <br/>
+           0 0 0 1 1 1 0 1
+           <br/>
+           0 0 0 0 1 0 1 0
+          </p>
+         </span>
+         <br>
+          <label for="option_1590">
+           <input checked="" data-mc-question="330" data-mc-question-index="2" id="option_1590" name="mc_2" type="radio" value="1590"/>
+           A.
+           <p>
+            1 -&gt; 2 -&gt; 6 -&gt; 5 -&gt; 8
+           </p>
+          </label>
+          <br>
+           <label for="option_1587">
+            <input data-mc-question="330" data-mc-question-index="2" id="option_1587" name="mc_2" type="radio" value="1587"/>
+            B.
+            <p>
+             1 -&gt; 2 -&gt; 3-&gt; 4 -&gt; 7 -&gt; 5 -&gt; 8
+            </p>
+           </label>
+           <br>
+            <label for="option_1732">
+             <input data-mc-question="330" data-mc-question-index="2" id="option_1732" name="mc_2" type="radio" value="1732"/>
+             C.
+             <p>
+              Các phương án khác đều sai.
+             </p>
+            </label>
+            <br>
+             <label for="option_1588">
+              <input data-mc-question="330" data-mc-question-index="2" id="option_1588" name="mc_2" type="radio" value="1588"/>
+              D.
+              <p>
+               1 -&gt; 4 -&gt; 7 -&gt; 8
+              </p>
+             </label>
+             <br>
+              <label for="option_1589">
+               <input data-mc-question="330" data-mc-question-index="2" id="option_1589" name="mc_2" type="radio" value="1589"/>
+               E.
+               <p>
+                1 -&gt; 3 -&gt; 5 -&gt; 8
+               </p>
+              </label>
+              <br>
+              </br>
+             </br>
+            </br>
+           </br>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_3" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 3.
+          </b>
+          <p>
+           Trường hợp đồ thị được biểu diễn dưới dạng ma trận kề, độ phức tạp của thuật toán Depth First Search có giá trị là bao nhiêu?
+          </p>
+         </span>
+         <br>
+          <label for="option_1086">
+           <input data-mc-question="226" data-mc-question-index="3" id="option_1086" name="mc_3" type="radio" value="1086"/>
+           A.
+           <p>
+            O(max(n, m))
+           </p>
+          </label>
+          <br>
+           <label for="option_1085">
+            <input data-mc-question="226" data-mc-question-index="3" id="option_1085" name="mc_3" type="radio" value="1085"/>
+            B.
+            <p>
+             O(n.m)
+            </p>
+           </label>
+           <br/>
+           <label for="option_1084">
+            <input data-mc-question="226" data-mc-question-index="3" id="option_1084" name="mc_3" type="radio" value="1084"/>
+            C.
+            <p>
+             O(n)
+            </p>
+           </label>
+           <br/>
+           <label for="option_1083">
+            <input checked="" data-mc-question="226" data-mc-question-index="3" id="option_1083" name="mc_3" type="radio" value="1083"/>
+            D.
+            <p>
+             O(n2)
+            </p>
+           </label>
+           <br/>
+           <label for="option_1715">
+            <input data-mc-question="226" data-mc-question-index="3" id="option_1715" name="mc_3" type="radio" value="1715"/>
+            E.
+            <p>
+             Các phương án khác đều sai.
+            </p>
+           </label>
+           <br/>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_4" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 4.
+          </b>
+          <p>
+           Đồ thị vô hướng G = (V, E) gồm 8 đỉnh biểu diễn dưới dạng danh sách cạnh như bên dưới. Sử dụng thuật toán BFS tìm kiếm đường đi từ đỉnh 1 đến đỉnh 6?
+          </p>
+          <table cellspacing="0" class="MsoTableGrid" style="border-collapse:collapse;border:none;font-family:'Times New Roman';font-size:13px;">
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <strong>
+                 <span style="font-size:12pt;">
+                  <span style="font-family:'Times New Roman';">
+                   <strong>
+                    Đỉnh đầu
+                   </strong>
+                  </span>
+                 </span>
+                </strong>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <strong>
+                 <span style="font-size:12pt;">
+                  <span style="font-family:'Times New Roman';">
+                   <strong>
+                    Đỉnh cuối
+                   </strong>
+                  </span>
+                 </span>
+                </strong>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:1px solid #000000;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <strong>
+                 <span style="font-size:12pt;">
+                  <span style="font-family:'Times New Roman';">
+                   <strong>
+                    Đỉnh đầu
+                   </strong>
+                  </span>
+                 </span>
+                </strong>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <strong>
+                 <span style="font-size:12pt;">
+                  <span style="font-family:'Times New Roman';">
+                   <strong>
+                    Đỉnh cuối
+                   </strong>
+                  </span>
+                 </span>
+                </strong>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  1
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  2
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  5
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  1
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  6
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  1
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  6
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  5
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  7
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  2
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  4
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  5
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  8
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  2
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  7
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  6
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  8
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+          </table>
+         </span>
+         <br/>
+         <label for="option_1733">
+          <input data-mc-question="331" data-mc-question-index="4" id="option_1733" name="mc_4" type="radio" value="1733"/>
+          A.
+          <p>
+           Các phương án khác đều sai.
+          </p>
+         </label>
+         <br/>
+         <label for="option_1591">
+          <input data-mc-question="331" data-mc-question-index="4" id="option_1591" name="mc_4" type="radio" value="1591"/>
+          B.
+          <p>
+           1 -&gt; 2 -&gt; 7 -&gt; 5 -&gt; 3 -&gt; 6
+          </p>
+         </label>
+         <br/>
+         <label for="option_1592">
+          <input checked="" data-mc-question="331" data-mc-question-index="4" id="option_1592" name="mc_4" type="radio" value="1592"/>
+          C.
+          <p>
+           1 -&gt; 6
+          </p>
+         </label>
+         <br/>
+         <label for="option_1593">
+          <input data-mc-question="331" data-mc-question-index="4" id="option_1593" name="mc_4" type="radio" value="1593"/>
+          D.
+          <p>
+           1 -&gt; 2 -&gt; 7 -&gt; 5 -&gt; 8 -&gt; 6
+          </p>
+         </label>
+         <br/>
+         <label for="option_1594">
+          <input data-mc-question="331" data-mc-question-index="4" id="option_1594" name="mc_4" type="radio" value="1594"/>
+          E.
+          <p>
+           1 -&gt; 3 -&gt; 5 -&gt; 8 -&gt; 6
+          </p>
+         </label>
+         <br/>
+        </tr>
+        <tr>
+         <div id="mc_5" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 5.
+          </b>
+          <p>
+           Đồ thị vô hướng G = (V, E) gồm 5 đỉnh được biểu diễn dưới dạng ma trận kề như bên dưới. Đâu là thứ tự duyệt các đỉnh của thuật toán DFS?
+           <br/>
+           0 1 1 1 1
+           <br/>
+           1 0 0 0 1
+           <br/>
+           1 0 0 1 0
+           <br/>
+           1 0 1 0 1
+           <br/>
+           1 1 0 1 0
+          </p>
+         </span>
+         <br>
+          <label for="option_1725">
+           <input data-mc-question="323" data-mc-question-index="5" id="option_1725" name="mc_5" type="radio" value="1725"/>
+           A.
+           <p>
+            Các phương án khác đều sai.
+           </p>
+          </label>
+          <br>
+           <label for="option_1561">
+            <input data-mc-question="323" data-mc-question-index="5" id="option_1561" name="mc_5" type="radio" value="1561"/>
+            B.
+            <p>
+             {1, 5, 4, 3, 2}
+            </p>
+           </label>
+           <br>
+            <label for="option_1562">
+             <input data-mc-question="323" data-mc-question-index="5" id="option_1562" name="mc_5" type="radio" value="1562"/>
+             C.
+             <p>
+              {2, 3, 4, 5, 1}
+             </p>
+            </label>
+            <br>
+             <label for="option_1559">
+              <input checked="" data-mc-question="323" data-mc-question-index="5" id="option_1559" name="mc_5" type="radio" value="1559"/>
+              D.
+              <p>
+               {1, 2, 5, 4, 3}
+              </p>
+             </label>
+             <br>
+              <label for="option_1560">
+               <input data-mc-question="323" data-mc-question-index="5" id="option_1560" name="mc_5" type="radio" value="1560"/>
+               E.
+               <p>
+                {5, 4, 3, 2, 1}
+               </p>
+              </label>
+              <br/>
+             </br>
+            </br>
+           </br>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_6" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 6.
+          </b>
+          <p>
+           Trường hợp đồ thị được biểu diễn dưới dạng danh sách kề có n đỉnh m cạnh, độ phức tạp của thuật toán Depth First Search có giá trị là bao nhiêu?
+          </p>
+         </span>
+         <br/>
+         <label for="option_1714">
+          <input checked="" data-mc-question="225" data-mc-question-index="6" id="option_1714" name="mc_6" type="radio" value="1714"/>
+          A.
+          <p>
+           Các phương án khác đều sai.
+          </p>
+         </label>
+         <br/>
+         <label for="option_1081">
+          <input data-mc-question="225" data-mc-question-index="6" id="option_1081" name="mc_6" type="radio" value="1081"/>
+          B.
+          <p>
+           O(n.m)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1082">
+          <input data-mc-question="225" data-mc-question-index="6" id="option_1082" name="mc_6" type="radio" value="1082"/>
+          C.
+          <p>
+           O(max(n, m))
+          </p>
+         </label>
+         <br/>
+         <label for="option_1080">
+          <input data-mc-question="225" data-mc-question-index="6" id="option_1080" name="mc_6" type="radio" value="1080"/>
+          D.
+          <p>
+           O(n)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1079">
+          <input data-mc-question="225" data-mc-question-index="6" id="option_1079" name="mc_6" type="radio" value="1079"/>
+          E.
+          <p>
+           O(n2)
+          </p>
+         </label>
+         <br/>
+        </tr>
+        <tr>
+         <div id="mc_7" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 7.
+          </b>
+          <p>
+           Đồ thị vô hướng G = (V, E) gồm 5 đỉnh được biểu diễn dưới dạng danh sách kề như bên dưới. Đâu là thứ tự duyệt các đỉnh của thuật toán DFS?
+           <br/>
+           Ke(1) = {2, 4} ,Ke(3) = {2, 4}
+           <br/>
+           Ke(2) = {1, 3, 5} Ke(4) = {1, 3}, Ke(5) = {2}
+          </p>
+         </span>
+         <br>
+          <label for="option_1577">
+           <input data-mc-question="327" data-mc-question-index="7" id="option_1577" name="mc_7" type="radio" value="1577"/>
+           A.
+           <p>
+            {1, 2, 3, 5, 4}
+           </p>
+          </label>
+          <br>
+           <label for="option_1578">
+            <input data-mc-question="327" data-mc-question-index="7" id="option_1578" name="mc_7" type="radio" value="1578"/>
+            B.
+            <p>
+             {1, 2, 4, 5, 3}
+            </p>
+           </label>
+           <br/>
+           <label for="option_1729">
+            <input checked="" data-mc-question="327" data-mc-question-index="7" id="option_1729" name="mc_7" type="radio" value="1729"/>
+            C.
+            <p>
+             Các phương án khác đều sai.
+            </p>
+           </label>
+           <br/>
+           <label for="option_1576">
+            <input data-mc-question="327" data-mc-question-index="7" id="option_1576" name="mc_7" type="radio" value="1576"/>
+            D.
+            <p>
+             {5, 3, 4, 2, 1}
+            </p>
+           </label>
+           <br/>
+           <label for="option_1575">
+            <input data-mc-question="327" data-mc-question-index="7" id="option_1575" name="mc_7" type="radio" value="1575"/>
+            E.
+            <p>
+             {1, 2, 4, 3, 5}
+            </p>
+           </label>
+           <br/>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_8" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 8.
+          </b>
+          <p>
+           Đồ thị vô hướng G = (V, E) gồm 5 đỉnh được biểu diễn dưới dạng ma trận kề như bên dưới. Đâu là thứ tự duyệt các đỉnh của thuật toán BFS?
+           <br/>
+           0 0 1 1 1
+           <br/>
+           0 0 0 1 1
+           <br/>
+           1 0 0 0 0
+           <br/>
+           1 1 0 0 1
+           <br/>
+           1 1 0 1 0
+          </p>
+         </span>
+         <br>
+          <label for="option_1726">
+           <input data-mc-question="324" data-mc-question-index="8" id="option_1726" name="mc_8" type="radio" value="1726"/>
+           A.
+           <p>
+            Các phương án khác đều sai.
+           </p>
+          </label>
+          <br>
+           <label for="option_1563">
+            <input data-mc-question="324" data-mc-question-index="8" id="option_1563" name="mc_8" type="radio" value="1563"/>
+            B.
+            <p>
+             {1, 2, 3, 4, 5}
+            </p>
+           </label>
+           <br>
+            <label for="option_1566">
+             <input data-mc-question="324" data-mc-question-index="8" id="option_1566" name="mc_8" type="radio" value="1566"/>
+             C.
+             <p>
+              {1, 5, 4, 2, 3}
+             </p>
+            </label>
+            <br>
+             <label for="option_1564">
+              <input data-mc-question="324" data-mc-question-index="8" id="option_1564" name="mc_8" type="radio" value="1564"/>
+              D.
+              <p>
+               {1, 3, 4, 5, 2}
+              </p>
+             </label>
+             <br>
+              <label for="option_1565">
+               <input checked="" data-mc-question="324" data-mc-question-index="8" id="option_1565" name="mc_8" type="radio" value="1565"/>
+               E.
+               <p>
+                {1, 3, 4, 2, 5}
+               </p>
+              </label>
+              <br/>
+             </br>
+            </br>
+           </br>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_9" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 9.
+          </b>
+          <p>
+           Trường hợp đồ thị được biểu diễn dưới dạng danh sách cạnh có n đỉnh, m cạnh, độ phức tạp của thuật toán Depth First Search có giá trị là bao nhiêu?
+          </p>
+         </span>
+         <br/>
+         <label for="option_1075">
+          <input data-mc-question="224" data-mc-question-index="9" id="option_1075" name="mc_9" type="radio" value="1075"/>
+          A.
+          <p>
+           O(n2)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1713">
+          <input checked="" data-mc-question="224" data-mc-question-index="9" id="option_1713" name="mc_9" type="radio" value="1713"/>
+          B.
+          <p>
+           Các phương án khác đều sai.
+          </p>
+         </label>
+         <br/>
+         <label for="option_1077">
+          <input data-mc-question="224" data-mc-question-index="9" id="option_1077" name="mc_9" type="radio" value="1077"/>
+          C.
+          <p>
+           O(n2.m)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1078">
+          <input data-mc-question="224" data-mc-question-index="9" id="option_1078" name="mc_9" type="radio" value="1078"/>
+          D.
+          <p>
+           O(max(n,m)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1076">
+          <input data-mc-question="224" data-mc-question-index="9" id="option_1076" name="mc_9" type="radio" value="1076"/>
+          E.
+          <p>
+           O(n.m)
+          </p>
+         </label>
+         <br/>
+        </tr>
+        <tr>
+         <div id="mc_10" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 10.
+          </b>
+          <p style="text-align:justify;">
+           <span style="font-size:13pt;">
+            <span style="font-family:'Times New Roman';">
+             <strong>
+              <span style="font-size:12pt;">
+               <span style="font-family:'Times New Roman';">
+                Đoạn giả mã của thuật toán Breadth First Search
+               </span>
+              </span>
+             </strong>
+             <strong>
+              <span style="font-size:12pt;">
+               <span style="font-family:'Times New Roman';">
+                được mô tả dưới đây.
+               </span>
+              </span>
+             </strong>
+            </span>
+           </span>
+          </p>
+          <p style="text-align:justify;">
+           <span style="font-size:13pt;">
+            <span style="font-family:'Times New Roman';">
+             <strong>
+              <span style="font-size:12pt;">
+               <span style="font-family:'Times New Roman';">
+                Cần sửa lại dòng mã nào để thu được giả mã chính xác?
+               </span>
+              </span>
+             </strong>
+            </span>
+           </span>
+          </p>
+          <table cellspacing="0" class="MsoTableGrid" style="border-collapse:collapse;border:none;font-family:'Times New Roman';font-size:13px;">
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;vertical-align:top;width:566px;">
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Begin
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  (Khởi tạo):
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  1. Queue =
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Cambria Math';">
+                  <span style="font-family:'Cambria Math';">
+                   ∅
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  ;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  2. Push(Queue, u);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3. chuaxet[u] = False;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  (Lặp):
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  4. while (Queue
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Times New Roman';">
+                   <span style="color:#000000;">
+                    <span style="font-family:'Times New Roman', Times, serif;">
+                     ≠
+                    </span>
+                   </span>
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Cambria Math';">
+                  <span style="font-family:'Cambria Math';">
+                   ∅
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  ) do
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  5.    s = Push(Queue);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  6.   for each t
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Cambria Math';">
+                   <span style="color:#000000;">
+                    <span style="font-family:'Cambria Math';">
+                     ∈
+                    </span>
+                   </span>
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Ke(s) do
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;vertical-align:top;width:641px;">
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  7.  if (chuaxet[t]) then
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  8.
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Pop(Queue, t); chuaxet[t] = False;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  EndIf;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  EndFor;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  EndWhile;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  (Trả kết quả):
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Return(&lt;Tập đỉnh được duyệt&gt;);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Times New Roman';">
+                   <span style="color:#000000;">
+                    End.
+                   </span>
+                  </span>
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+             </p>
+            </td>
+           </tr>
+          </table>
+         </span>
+         <br/>
+         <label for="option_1720">
+          <input data-mc-question="361" data-mc-question-index="10" id="option_1720" name="mc_10" type="radio" value="1720"/>
+          A.
+          <p>
+           2
+          </p>
+         </label>
+         <br/>
+         <label for="option_1721">
+          <input data-mc-question="361" data-mc-question-index="10" id="option_1721" name="mc_10" type="radio" value="1721"/>
+          B.
+          <p>
+           2, 5
+          </p>
+         </label>
+         <br/>
+         <label for="option_1719">
+          <input data-mc-question="361" data-mc-question-index="10" id="option_1719" name="mc_10" type="radio" value="1719"/>
+          C.
+          <p>
+           Không cần chỉnh sửa
+          </p>
+         </label>
+         <br/>
+         <label for="option_1723">
+          <input data-mc-question="361" data-mc-question-index="10" id="option_1723" name="mc_10" type="radio" value="1723"/>
+          D.
+          <p>
+           Các phương án khác đều sai.
+          </p>
+         </label>
+         <br/>
+         <label for="option_1722">
+          <input checked="" data-mc-question="361" data-mc-question-index="10" id="option_1722" name="mc_10" type="radio" value="1722"/>
+          E.
+          <p>
+           5, 8
+          </p>
+         </label>
+         <br/>
+        </tr>
+        <tr>
+         <div id="mc_11" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 11.
+          </b>
+          <p>
+           Sắp xếp theo thứ tự để thu được đoạn giả mã của thuật toán BFS
+          </p>
+          <table cellspacing="0" class="MsoTableGrid" style="border-collapse:collapse;border:none;font-family:'Times New Roman';font-size:13px;">
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;vertical-align:top;width:604px;">
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Begin
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  (Khởi tạo):
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Queue =
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Cambria Math';">
+                  <span style="font-family:'Cambria Math';">
+                   ∅
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  ;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Push(Queue, u);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  chuaxet[u] = False;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  (Lặp):
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  1. EndIf;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  2. EndFor;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3. EndWhile;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;vertical-align:top;width:604px;">
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  4. s = Pop(Queue);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  5. Push(Queue, t); chuaxet[t] = False;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  6. if (chuaxet[t]) then
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  7. for each t
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Cambria Math';">
+                   <span style="color:#000000;">
+                    <span style="font-family:'Cambria Math';">
+                     ∈
+                    </span>
+                   </span>
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Ke(s) do
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  8. while (Queue
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Times New Roman';">
+                   <span style="color:#000000;">
+                    <span style="font-family:'Times New Roman', Times, serif;">
+                     ≠
+                    </span>
+                   </span>
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Cambria Math';">
+                  <span style="font-family:'Cambria Math';">
+                   ∅
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  ) do
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  (Trả kết quả):
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Return(&lt;Tập đỉnh được duyệt&gt;);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Times New Roman';">
+                   <span style="color:#000000;">
+                    End.
+                   </span>
+                  </span>
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+             </p>
+            </td>
+           </tr>
+          </table>
+         </span>
+         <br/>
+         <label for="option_1716">
+          <input data-mc-question="227" data-mc-question-index="11" id="option_1716" name="mc_11" type="radio" value="1716"/>
+          A.
+          <p>
+           Các phương án khác đều sai.
+          </p>
+         </label>
+         <br/>
+         <label for="option_1088">
+          <input data-mc-question="227" data-mc-question-index="11" id="option_1088" name="mc_11" type="radio" value="1088"/>
+          B.
+          <p>
+           <span style="font-size:13pt;">
+            <span style="font-size:12pt;">
+             <span style="background-color:#ffffff;">
+              <span style="font-family:'Times New Roman';">
+               <span style="color:#000000;">
+                B. 8 -&gt; 4 -&gt; 6 -&gt; 7 -&gt; 5 -&gt; 2 -&gt; 1 -&gt; 3
+               </span>
+              </span>
+             </span>
+            </span>
+           </span>
+          </p>
+         </label>
+         <br/>
+         <label for="option_1090">
+          <input data-mc-question="227" data-mc-question-index="11" id="option_1090" name="mc_11" type="radio" value="1090"/>
+          C.
+          <p>
+           <span style="font-size:13pt;">
+            <span style="font-size:12pt;">
+             <span style="background-color:#ffffff;">
+              <span style="font-family:'Times New Roman';">
+               <span style="color:#000000;">
+                D. 4 -&gt; 8 -&gt; 6 -&gt; 7 -&gt; 5 -&gt; 2 -&gt; 1 -&gt; 3
+               </span>
+              </span>
+             </span>
+            </span>
+           </span>
+          </p>
+         </label>
+         <br/>
+         <label for="option_1089">
+          <input data-mc-question="227" data-mc-question-index="11" id="option_1089" name="mc_11" type="radio" value="1089"/>
+          D.
+          <p>
+           <span style="font-size:13pt;">
+            <span style="font-size:12pt;">
+             <span style="background-color:#ffffff;">
+              <span style="font-family:'Times New Roman';">
+               <span style="color:#000000;">
+                C. 4 -&gt; 8 -&gt; 7 -&gt; 6 -&gt; 5 -&gt; 1 -&gt; 2 -&gt; 3
+               </span>
+              </span>
+             </span>
+            </span>
+           </span>
+          </p>
+         </label>
+         <br/>
+         <label for="option_1087">
+          <input checked="" data-mc-question="227" data-mc-question-index="11" id="option_1087" name="mc_11" type="radio" value="1087"/>
+          E.
+          <p>
+           <span style="font-size:13pt;">
+            <span style="font-size:12pt;">
+             <span style="background-color:#ffffff;">
+              <span style="font-family:'Times New Roman';">
+               <span style="color:#000000;">
+                *
+               </span>
+              </span>
+             </span>
+            </span>
+            <span style="font-size:12pt;">
+             <span style="background-color:#ffffff;">
+              <span style="font-family:'Times New Roman';">
+               <span style="color:#000000;">
+                A. 8 -&gt;4 -&gt; 7 -&gt; 6 -&gt; 5 -&gt; 1 -&gt; 2 -&gt; 3
+               </span>
+              </span>
+             </span>
+            </span>
+           </span>
+          </p>
+         </label>
+         <br/>
+        </tr>
+        <tr>
+         <div id="mc_12" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 12.
+          </b>
+          <p>
+           Cho đồ thị vô hướng G = (V, E) gồm 5 đỉnh dưới dạng danh sách cạnh như bên dưới. Đâu là thứ tự duyệt các đỉnh của thuật toán BFS?
+          </p>
+          <table cellspacing="0" class="MsoTableGrid" style="border-collapse:collapse;border:none;font-family:'Times New Roman';font-size:13px;">
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <strong>
+                 <span style="font-size:12pt;">
+                  <span style="font-family:'Times New Roman';">
+                   <strong>
+                    Đỉnh đầu
+                   </strong>
+                  </span>
+                 </span>
+                </strong>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <strong>
+                 <span style="font-size:12pt;">
+                  <span style="font-family:'Times New Roman';">
+                   <strong>
+                    Đỉnh cuối
+                   </strong>
+                  </span>
+                 </span>
+                </strong>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:1px solid #000000;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <strong>
+                 <span style="font-size:12pt;">
+                  <span style="font-family:'Times New Roman';">
+                   <strong>
+                    Đỉnh đầu
+                   </strong>
+                  </span>
+                 </span>
+                </strong>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <strong>
+                 <span style="font-size:12pt;">
+                  <span style="font-family:'Times New Roman';">
+                   <strong>
+                    Đỉnh cuối
+                   </strong>
+                  </span>
+                 </span>
+                </strong>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  1
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  2
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  5
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  1
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  4
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  4
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  2
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px double #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:none;width:198px;">
+             <p style="text-align:center;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  5
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+          </table>
+         </span>
+         <br/>
+         <label for="option_1574">
+          <input checked="" data-mc-question="326" data-mc-question-index="12" id="option_1574" name="mc_12" type="radio" value="1574"/>
+          A.
+          <p>
+           {1, 3, 4, 2, 5}
+          </p>
+         </label>
+         <br/>
+         <label for="option_1728">
+          <input data-mc-question="326" data-mc-question-index="12" id="option_1728" name="mc_12" type="radio" value="1728"/>
+          B.
+          <p>
+           Các phương án khác đều sai.
+          </p>
+         </label>
+         <br/>
+         <label for="option_1572">
+          <input data-mc-question="326" data-mc-question-index="12" id="option_1572" name="mc_12" type="radio" value="1572"/>
+          C.
+          <p>
+           {1, 3, 4, 5, 2}
+          </p>
+         </label>
+         <br/>
+         <label for="option_1571">
+          <input data-mc-question="326" data-mc-question-index="12" id="option_1571" name="mc_12" type="radio" value="1571"/>
+          D.
+          <p>
+           {1, 2, 3, 4, 5}
+          </p>
+         </label>
+         <br/>
+         <label for="option_1573">
+          <input data-mc-question="326" data-mc-question-index="12" id="option_1573" name="mc_12" type="radio" value="1573"/>
+          E.
+          <p>
+           {1, 2, 3, 5, 4}
+          </p>
+         </label>
+         <br/>
+        </tr>
+        <tr>
+         <div id="mc_13" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 13.
+          </b>
+          <p>
+           Đồ thị vô hướng G = (V, E) gồm 5 đỉnh được biểu diễn dưới dạng danh sách kề như bên dưới. Đâu là thứ tự duyệt các đỉnh của thuật toán BFS?
+           <br/>
+           Ke(1) = {2, 4} Ke(3) = {2, 4}
+           <br/>
+           Ke(2) = {1, 3, 5} Ke(4) = {1, 3}, Ke(5) = {2}
+          </p>
+         </span>
+         <br>
+          <label for="option_1730">
+           <input data-mc-question="328" data-mc-question-index="13" id="option_1730" name="mc_13" type="radio" value="1730"/>
+           A.
+           <p>
+            Các phương án khác đều sai.
+           </p>
+          </label>
+          <br>
+           <label for="option_1581">
+            <input data-mc-question="328" data-mc-question-index="13" id="option_1581" name="mc_13" type="radio" value="1581"/>
+            B.
+            <p>
+             {1, 2, 5, 4, 3}
+            </p>
+           </label>
+           <br/>
+           <label for="option_1580">
+            <input data-mc-question="328" data-mc-question-index="13" id="option_1580" name="mc_13" type="radio" value="1580"/>
+            C.
+            <p>
+             {1, 2, 3, 4, 5}
+            </p>
+           </label>
+           <br/>
+           <label for="option_1579">
+            <input checked="" data-mc-question="328" data-mc-question-index="13" id="option_1579" name="mc_13" type="radio" value="1579"/>
+            D.
+            <p>
+             {1, 2, 4, 3, 5}
+            </p>
+           </label>
+           <br/>
+           <label for="option_1582">
+            <input data-mc-question="328" data-mc-question-index="13" id="option_1582" name="mc_13" type="radio" value="1582"/>
+            E.
+            <p>
+             {1, 2, 4, 5, 3}
+            </p>
+           </label>
+           <br/>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_14" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 14.
+          </b>
+          <p>
+           Sắp xếp theo thứ tự để thu được đoạn giả mã của thuật toán DFS:
+          </p>
+          <table cellspacing="0" class="MsoTableGrid" style="border-collapse:collapse;border:none;font-family:'Times New Roman';font-size:13px;">
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;vertical-align:top;width:604px;">
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Begin
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  1. EndIf;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  2. EndFor;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  3. DFS(v);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  4. &lt;Thăm đỉnh u&gt;; // Duyệt đỉnh u
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;vertical-align:top;width:604px;">
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  5. chuaxet[u]:= FALSE;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  6. if (chuaxet[v]) then
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  7. for each v
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Cambria Math';">
+                   <span style="color:#000000;">
+                    <span style="font-family:'Cambria Math';">
+                     ∈
+                    </span>
+                   </span>
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Times New Roman';">
+                   <span style="color:#000000;">
+                    ke(u) do
+                   </span>
+                  </span>
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Times New Roman';">
+                   <span style="color:#000000;">
+                    End.
+                   </span>
+                  </span>
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+             </p>
+            </td>
+           </tr>
+          </table>
+         </span>
+         <br/>
+         <label for="option_1067">
+          <input data-mc-question="222" data-mc-question-index="14" id="option_1067" name="mc_14" type="radio" value="1067"/>
+          A.
+          <p>
+           4 -&gt; 7 -&gt; 3 -&gt; 2 -&gt; 6 -&gt; 5 -&gt; 1
+          </p>
+         </label>
+         <br/>
+         <label for="option_1070">
+          <input checked="" data-mc-question="222" data-mc-question-index="14" id="option_1070" name="mc_14" type="radio" value="1070"/>
+          B.
+          <p>
+           4 -&gt; 5 -&gt; 7 -&gt; 6 -&gt; 3 -&gt; 1 -&gt; 2
+          </p>
+         </label>
+         <br/>
+         <label for="option_1711">
+          <input data-mc-question="222" data-mc-question-index="14" id="option_1711" name="mc_14" type="radio" value="1711"/>
+          C.
+          <p>
+           Các phương án khác đều sai.
+          </p>
+         </label>
+         <br/>
+         <label for="option_1068">
+          <input data-mc-question="222" data-mc-question-index="14" id="option_1068" name="mc_14" type="radio" value="1068"/>
+          D.
+          <p>
+           4 -&gt; 7 -&gt; 6 -&gt; 4 -&gt; 5 -&gt; 1 -&gt; 2
+          </p>
+         </label>
+         <br/>
+         <label for="option_1069">
+          <input data-mc-question="222" data-mc-question-index="14" id="option_1069" name="mc_14" type="radio" value="1069"/>
+          E.
+          <p>
+           4 -&gt; 7 -&gt; 5 -&gt; 3 -&gt; 2 -&gt; 6 -&gt; 1
+          </p>
+         </label>
+         <br/>
+        </tr>
+        <tr>
+         <div id="mc_15" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 15.
+          </b>
+          <p>
+           Trường hợp đồ thị được biểu diễn dưới dạng ma trận kề, độ phức tạp của thuật toán Breadth First Search có giá trị là bao nhiêu?
+          </p>
+         </span>
+         <br/>
+         <label for="option_1555">
+          <input checked="" data-mc-question="322" data-mc-question-index="15" id="option_1555" name="mc_15" type="radio" value="1555"/>
+          A.
+          <p>
+           O(n2)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1558">
+          <input data-mc-question="322" data-mc-question-index="15" id="option_1558" name="mc_15" type="radio" value="1558"/>
+          B.
+          <p>
+           O(n.m)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1556">
+          <input data-mc-question="322" data-mc-question-index="15" id="option_1556" name="mc_15" type="radio" value="1556"/>
+          C.
+          <p>
+           O(n)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1557">
+          <input data-mc-question="322" data-mc-question-index="15" id="option_1557" name="mc_15" type="radio" value="1557"/>
+          D.
+          <p>
+           O(n2.m)
+          </p>
+         </label>
+         <br/>
+         <label for="option_1724">
+          <input data-mc-question="322" data-mc-question-index="15" id="option_1724" name="mc_15" type="radio" value="1724"/>
+          E.
+          <p>
+           Các phương án khác đều sai.
+          </p>
+         </label>
+         <br/>
+        </tr>
+        <tr>
+         <div id="mc_16" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 16.
+          </b>
+          <p>
+           Đồ thị vô hướng G = (V, E) gồm 8 đỉnh biểu diễn dưới dạng ma trận kề như bên dưới. Sử dụng thuật toán DFS để tìm kiếm đường đi từ đỉnh 1 đến đỉnh 8?
+           <br/>
+           0 1 1 1 0 0 0 0
+           <br/>
+           1 0 1 1 0 1 0 0
+           <br/>
+           1 1 0 1 1 0 0 0
+           <br/>
+           1 1 1 0 0 0 1 0
+           <br/>
+           0 0 1 0 0 1 1 1
+           <br/>
+           0 1 0 0 1 0 1 0
+           <br/>
+           0 0 0 1 1 1 0 1
+           <br/>
+           0 0 0 0 1 0 1 0
+          </p>
+         </span>
+         <br>
+          <label for="option_1597">
+           <input data-mc-question="332" data-mc-question-index="16" id="option_1597" name="mc_16" type="radio" value="1597"/>
+           A.
+           <p>
+            1 -&gt; 3 -&gt; 5 -&gt; 8
+           </p>
+          </label>
+          <br>
+           <label for="option_1598">
+            <input data-mc-question="332" data-mc-question-index="16" id="option_1598" name="mc_16" type="radio" value="1598"/>
+            B.
+            <p>
+             1 -&gt; 2 -&gt; 6 -&gt; 5 -&gt; 8
+            </p>
+           </label>
+           <br>
+            <label for="option_1595">
+             <input data-mc-question="332" data-mc-question-index="16" id="option_1595" name="mc_16" type="radio" value="1595"/>
+             C.
+             <p>
+              1 -&gt; 2 -&gt; 3 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8
+             </p>
+            </label>
+            <br>
+             <label for="option_1596">
+              <input data-mc-question="332" data-mc-question-index="16" id="option_1596" name="mc_16" type="radio" value="1596"/>
+              D.
+              <p>
+               1 -&gt; 4 -&gt; 7 -&gt; 8
+              </p>
+             </label>
+             <br>
+              <label for="option_1734">
+               <input checked="" data-mc-question="332" data-mc-question-index="16" id="option_1734" name="mc_16" type="radio" value="1734"/>
+               E.
+               <p>
+                Các phương án khác đều sai.
+               </p>
+              </label>
+              <br>
+              </br>
+             </br>
+            </br>
+           </br>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_17" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 17.
+          </b>
+          <p>
+           Đoạn giả mã dưới đây mô tả ứng dụng thuật toán Breadth First Search để tìm đường đi từ đỉnh nào đến đỉnh nào?
+          </p>
+          <table cellspacing="0" class="MsoTableGrid" style="border-collapse:collapse;border:none;font-family:'Times New Roman';font-size:13px;">
+           <tr>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;vertical-align:top;width:566px;">
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Begin
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  (Khởi tạo):
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Queue =
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Cambria Math';">
+                  <span style="font-family:'Cambria Math';">
+                   ∅
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  ; Push(Queue, s);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  chuaxet[s] = False;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  (Lặp):
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  while (Queue
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Times New Roman';">
+                   <span style="color:#000000;">
+                    <span style="font-family:'Times New Roman', Times, serif;">
+                     ≠
+                    </span>
+                   </span>
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Cambria Math';">
+                  <span style="font-family:'Cambria Math';">
+                   ∅
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  ) do
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  u = Pop(Queue);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  for each v
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Cambria Math';">
+                   <span style="color:#000000;">
+                    <span style="font-family:'Cambria Math';">
+                     ∈
+                    </span>
+                   </span>
+                  </span>
+                 </span>
+                </span>
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Ke(u) do
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  if (chuaxet[v]) then
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+            <td style="border-bottom:1px solid #000000;border-left:1px solid #000000;border-right:1px solid #000000;border-top:1px solid #000000;vertical-align:top;width:641px;">
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Push(Queue, v); chuaxet[v] = False;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  truoc[v]=u;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  EndIf;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  EndFor;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  EndWhile;
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  (Trả kết quả):
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="font-family:'Times New Roman';">
+                  Return(&lt;Tập đỉnh được duyệt&gt;);
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+             <p style="text-align:justify;">
+              <span style="font-size:13pt;">
+               <span style="font-family:'Times New Roman';">
+                <span style="font-size:12pt;">
+                 <span style="background-color:#ffffff;">
+                  <span style="font-family:'Times New Roman';">
+                   <span style="color:#000000;">
+                    End.
+                   </span>
+                  </span>
+                 </span>
+                </span>
+               </span>
+              </span>
+             </p>
+            </td>
+           </tr>
+          </table>
+         </span>
+         <br>
+          <label for="option_1585">
+           <input data-mc-question="329" data-mc-question-index="17" id="option_1585" name="mc_17" type="radio" value="1585"/>
+           A.
+           <p>
+            Đỉnh u đến đỉnh s
+           </p>
+          </label>
+          <br>
+           <label for="option_1731">
+            <input checked="" data-mc-question="329" data-mc-question-index="17" id="option_1731" name="mc_17" type="radio" value="1731"/>
+            B.
+            <p>
+             Các phương án khác đều sai.
+            </p>
+           </label>
+           <br/>
+           <label for="option_1583">
+            <input data-mc-question="329" data-mc-question-index="17" id="option_1583" name="mc_17" type="radio" value="1583"/>
+            C.
+            <p>
+             Đỉnh u đến đỉnh v
+            </p>
+           </label>
+           <br/>
+           <label for="option_1586">
+            <input data-mc-question="329" data-mc-question-index="17" id="option_1586" name="mc_17" type="radio" value="1586"/>
+            D.
+            <p>
+             Đỉnh v đến đỉnh s
+            </p>
+           </label>
+           <br/>
+           <label for="option_1584">
+            <input data-mc-question="329" data-mc-question-index="17" id="option_1584" name="mc_17" type="radio" value="1584"/>
+            E.
+            <p>
+             Đỉnh v đến đỉnh u
+            </p>
+           </label>
+           <br/>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_18" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 18.
+          </b>
+          <p>
+           Đoạn giả mã của thuật toán Depth First Search được mô tả dưới đây.
+           <br/>
+           Begin
+           <br/>
+           1.    &lt;Thăm đỉnh u&gt;;
+           <br/>
+           2.    chuaxet[u]: = TRUE;
+           <br/>
+           3.    for each v ∈ ke(u) do
+           <br/>
+           4.        if (chuaxet[v]) then
+           <br/>
+           5.            DFS(u);
+           <br/>
+           6.        End If;
+           <br/>
+           7.    End For;
+           <br/>
+           End.
+           <br/>
+           7. End For;
+           <br/>
+           End.
+           <br/>
+           Cần sửa lại dòng mã nào để thu được giả mã chính xác?
+          </p>
+         </span>
+         <br>
+          <label for="option_1712">
+           <input checked="" data-mc-question="223" data-mc-question-index="18" id="option_1712" name="mc_18" type="radio" value="1712"/>
+           A.
+           <p>
+            Các phương án khác đều sai.
+           </p>
+          </label>
+          <br>
+           <label for="option_1074">
+            <input data-mc-question="223" data-mc-question-index="18" id="option_1074" name="mc_18" type="radio" value="1074"/>
+            B.
+            <p>
+             3, 4
+            </p>
+           </label>
+           <br>
+            <label for="option_1071">
+             <input data-mc-question="223" data-mc-question-index="18" id="option_1071" name="mc_18" type="radio" value="1071"/>
+             C.
+             <p>
+              Không cần chỉnh sửa
+             </p>
+            </label>
+            <br>
+             <label for="option_1072">
+              <input data-mc-question="223" data-mc-question-index="18" id="option_1072" name="mc_18" type="radio" value="1072"/>
+              D.
+              <p>
+               2
+              </p>
+             </label>
+             <br>
+              <label for="option_1073">
+               <input data-mc-question="223" data-mc-question-index="18" id="option_1073" name="mc_18" type="radio" value="1073"/>
+               E.
+               <p>
+                2, 5
+               </p>
+              </label>
+              <br>
+              </br>
+             </br>
+            </br>
+           </br>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_19" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 19.
+          </b>
+          <p>
+           Trường hợp đồ thị được biểu diễn dưới dạng danh sách cạnh có n đỉnh m cạnh, độ phức tạp của thuật toán Breadth First Search có giá trị là bao nhiêu?
+          </p>
+         </span>
+         <br>
+          <label for="option_1717">
+           <input checked="" data-mc-question="320" data-mc-question-index="19" id="option_1717" name="mc_19" type="radio" value="1717"/>
+           A.
+           <p>
+            Các phương án khác đều sai.
+           </p>
+          </label>
+          <br>
+           <label for="option_1549">
+            <input data-mc-question="320" data-mc-question-index="19" id="option_1549" name="mc_19" type="radio" value="1549"/>
+            B.
+            <p>
+             O(n2.m)
+            </p>
+           </label>
+           <br>
+            <label for="option_1547">
+             <input data-mc-question="320" data-mc-question-index="19" id="option_1547" name="mc_19" type="radio" value="1547"/>
+             C.
+             <p>
+              O(n2)
+             </p>
+            </label>
+            <br>
+             <label for="option_1550">
+              <input data-mc-question="320" data-mc-question-index="19" id="option_1550" name="mc_19" type="radio" value="1550"/>
+              D.
+              <p>
+               O(max(n,m)
+              </p>
+             </label>
+             <br>
+              <label for="option_1548">
+               <input data-mc-question="320" data-mc-question-index="19" id="option_1548" name="mc_19" type="radio" value="1548"/>
+               E.
+               <p>
+                O(n3)
+               </p>
+              </label>
+              <br>
+              </br>
+             </br>
+            </br>
+           </br>
+          </br>
+         </br>
+        </tr>
+        <tr>
+         <div id="mc_20" style="scroll-margin-top: 84.8px;">
+         </div>
+         <span>
+          <b>
+           Câu 20.
+          </b>
+          <p>
+           Cho đồ thị vô hướng G = (V, E) gồm 5 đỉnh dưới dạng danh sách cạnh như bên dưới. Đâu là thứ tự duyệt các đỉnh của thuật toán DFS?
+           <br/>
+           Đỉnh đầu Đỉnh cuối Đỉnh đầu Đỉnh cuối
+           <br/>
+           1 3 2 4
+           <br/>
+           1 4 3 4
+           <br/>
+           1 5 4 5
+          </p>
+         </span>
+         <br>
+          <label for="option_1727">
+           <input data-mc-question="325" data-mc-question-index="20" id="option_1727" name="mc_20" type="radio" value="1727"/>
+           A.
+           <p>
+            Các phương án khác đều sai.
+           </p>
+          </label>
+          <br>
+           <label for="option_1568">
+            <input data-mc-question="325" data-mc-question-index="20" id="option_1568" name="mc_20" type="radio" value="1568"/>
+            B.
+            <p>
+             {1, 3, 4, 5, 2}
+            </p>
+           </label>
+           <br>
+            <label for="option_1567">
+             <input data-mc-question="325" data-mc-question-index="20" id="option_1567" name="mc_20" type="radio" value="1567"/>
+             C.
+             <p>
+              {1, 2, 3, 4, 5}
+             </p>
+            </label>
+            <br>
+             <label for="option_1569">
+              <input checked="" data-mc-question="325" data-mc-question-index="20" id="option_1569" name="mc_20" type="radio" value="1569"/>
+              D.
+              <p>
+               {1, 3, 4, 2, 5}
+              </p>
+             </label>
+             <br/>
+             <label for="option_1570">
+              <input data-mc-question="325" data-mc-question-index="20" id="option_1570" name="mc_20" type="radio" value="1570"/>
+              E.
+              <p>
+               {1, 5, 4, 2, 3}
+              </p>
+             </label>
+             <br/>
+            </br>
+           </br>
+          </br>
+         </br>
+        </tr>
+       </tbody>
+      </table>
+      <div class="admin__ques__nav">
+       <div class="admin__ques__nav__top">
+        <span class="admin__ques__nav__title">
+        </span>
+        <a href="javascript:void(0);" onclick="save_result();" style="background-color: #38c172;">
+         Lưu kết quả
+        </a>
+        <span class="admin__ques__nav__title">
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="mc-footer">
+      <ul>
+       <li>
+        <a class="answer" href="#mc_1" id="question_button_1">
+         1
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_2" id="question_button_2">
+         2
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_3" id="question_button_3">
+         3
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_4" id="question_button_4">
+         4
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_5" id="question_button_5">
+         5
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_6" id="question_button_6">
+         6
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_7" id="question_button_7">
+         7
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_8" id="question_button_8">
+         8
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_9" id="question_button_9">
+         9
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_10" id="question_button_10">
+         10
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_11" id="question_button_11">
+         11
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_12" id="question_button_12">
+         12
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_13" id="question_button_13">
+         13
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_14" id="question_button_14">
+         14
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_15" id="question_button_15">
+         15
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_16" id="question_button_16">
+         16
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_17" id="question_button_17">
+         17
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_18" id="question_button_18">
+         18
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_19" id="question_button_19">
+         19
+        </a>
+       </li>
+       <li>
+        <a class="answer" href="#mc_20" id="question_button_20">
+         20
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="chat__icon__wrapper">
+    <div class="chat__icon__noti" id="chat__icon__noti">
+     <span id="chat__icon__noti__number">
+      1
+     </span>
+    </div>
+    <i aria-hidden="true" class="fa fa-comment-o chat__icon" onclick="toggleChat()">
+    </i>
+   </div>
+  </div>
+  <div class="chat__panel disappear">
+   <div class="chat__panel__box">
+    <div class="chat__panel__box__head">
+     <select id="channel" name="channel">
+      <option value="CONTEST_7621">
+       Trắc nghiệm 1
+      </option>
+      <option value="CONTEST_7678">
+       Trắc nghiệm 2
+      </option>
+      <option value="CONTEST_7679">
+       Code 1
+      </option>
+     </select>
+     <button class="closeBtn" onclick="toggleChat()">
+      <i class="fa fa-times">
+      </i>
+     </button>
+    </div>
+    <div class="chat__panel__box__body" id="chat__body">
+    </div>
+   </div>
+   <div class="chat__panel__input">
+    <form action="">
+     <div class="chat__panel__input__head">
+      <div class="chat__panel__input__head__info">
+       <label for="to">
+        Đến
+       </label>
+       <select id="rec" name="to">
+        <option value="">
+         Mọi người
+        </option>
+       </select>
+      </div>
+     </div>
+     <textarea cols="30" id="msg" name="" placeholder="Nhập nội dung tin nhắn..." rows="3.5"></textarea>
+    </form>
+   </div>
+  </div>
+  <script>
+   function toggleMenu(){
+        $('.nav__profile__menu').toggleClass('appear').toggleClass('disappear');
+    }
+    function close_popup(){
+        $('.main__user__welcome').addClass('disappear');
+    }
+    function customSelect(className){
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        /* Look for any elements with the class "custom-select": */
+        x = document.getElementsByClassName(className);
+        l = x.length;
+        for (i = 0; i < l; i++) {
+            selElmnt = x[i].getElementsByTagName("select")[0];
+            ll = selElmnt.length;
+            /* For each element, create a new DIV that will act as the selected item: */
+            a = document.createElement("DIV");
+            a.setAttribute("class", "select-selected");
+            let name = '';
+            if (selElmnt.options[selElmnt.selectedIndex] !== undefined) {
+                name = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+            }
+            let limit;
+            if(className == "select__lang"){
+                limit = 10;
+            }else if(className == "select__subject"){
+                limit = 35;
+            }else if(className == "select__group"){
+                limit = 7;
+            }else if(className == "select__term"){
+                limit = 18;
+            }
+            if(name.length > limit){
+                name = name.substring(0, limit) + "...";
+            }
+            a.innerHTML = name;
+            x[i].appendChild(a);
+            /* For each element, create a new DIV that will contain the option list: */
+            b = document.createElement("DIV");
+            b.setAttribute("class", "select-items select-hide");
+            for (j = 0; j < ll; j++) {
+                /* For each option in the original select element,
+                create a new DIV that will act as an option item: */
+                c = document.createElement("DIV");
+                c.innerHTML = selElmnt.options[j].innerHTML;
+                if(j != selElmnt.selectedIndex){
+
+                    c.addEventListener("click", function(e) {
+                        /* When an item is clicked, update the original select box,
+                        and the selected item: */
+                        var y, i, k, s, h, sl, yl;
+                        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                        sl = s.length;
+                        h = this.parentNode.previousSibling;
+                        for (i = 0; i < sl; i++) {
+                            if (s.options[i].innerHTML == this.innerHTML) {
+                                s.selectedIndex = i;
+                                h.innerHTML = this.innerHTML;
+                                y = this.parentNode.getElementsByClassName("same-as-selected");
+                                yl = y.length;
+                                for (k = 0; k < yl; k++) {
+                                    y[k].removeAttribute("class");
+                                }
+                                this.setAttribute("class", "same-as-selected");
+                                break;
+                            }
+                        }
+                        if(className == "select__lang"){
+                            if (document.getElementById('editor')) {
+                                if(h.innerHTML == 'C/C++'){
+                                    var editor = ace.edit("editor");
+                                    editor.session.setMode("ace/mode/c_cpp");
+                                } else if(h.innerHTML == 'Java'){
+                                    var editor = ace.edit("editor");
+                                    editor.session.setMode("ace/mode/java");
+                                } else{
+                                    var editor = ace.edit("editor");
+                                    editor.session.setMode("ace/mode/python");
+                                }
+                            }
+                        }else if(className == "select__subject"){
+                            let len = selElmnt.length;
+                            for(let i = 0; i < len; i++){
+                                if(h.innerHTML == selElmnt.options[i].innerHTML){
+                                    if (!selElmnt.options[i].disabled) {
+                                        window.location = '?' + selElmnt.name + '=' + selElmnt.options[i].value;
+                                        break;
+                                    }
+                                }
+                            }
+                        }else if(className == "select__group"){
+                            let len = selElmnt.length;
+                            for(let i = 0; i < len; i++){
+                                if(h.innerHTML == selElmnt.options[i].innerHTML) {
+                                    if (!selElmnt.options[i].disabled) {
+                                        window.location = '?semester=' + selElmnt.options[selElmnt.selectedIndex].getAttribute('data-semester') + '&' + selElmnt.name + '=' + selElmnt.options[i].value;
+                                        break;
+                                    }
+                                }
+                            }
+                        }else if(className == "select__term"){
+                            let len = selElmnt.length;
+                            for(let i = 0; i < len; i++){
+                                if(h.innerHTML == selElmnt.options[i].innerHTML) {
+                                    if (!selElmnt.options[i].disabled) {
+                                        window.location = '?' + selElmnt.name + '=' + selElmnt.options[i].value;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        h.click();
+                    });
+                }
+                b.appendChild(c);
+            }
+            x[i].appendChild(b);
+            a.addEventListener("click", function(e) {
+                /* When the select box is clicked, close any other select boxes,
+                and open/close the current select box: */
+                e.stopPropagation();
+                closeAllSelect(this);
+                this.nextSibling.classList.toggle("select-hide");
+                this.classList.toggle("select-arrow-active");
+            });
+        }
+
+    }
+
+    customSelect('select__lang');
+    customSelect('select__subject');
+    customSelect('select__group');
+    customSelect('select__term');
+
+    function closeAllSelect(elmnt) {
+        /* A function that will close all select boxes in the document,
+        except the current select box: */
+        var x, y, z, i, xl, yl, zl, arrNo = [];
+        x = document.getElementsByClassName("select-items");
+        y = document.getElementsByClassName("select-selected");
+        xl = x.length;
+        yl = y.length;
+        for (i = 0; i < yl; i++) {
+            if (elmnt == y[i]) {
+                arrNo.push(i)
+            } else {
+                y[i].classList.remove("select-arrow-active");
+            }
+        }
+        for (i = 0; i < xl; i++) {
+            if (arrNo.indexOf(i)) {
+                x[i].classList.add("select-hide");
+            }
+        }
+    }
+
+    /* If the user clicks anywhere outside the select box,
+    then close all select boxes: */
+    document.addEventListener("click", closeAllSelect);
+    function popup_disappear(a){
+        let input = document.getElementsByClassName(a);
+        $(`.${a}`).addClass('disappear');
+    }
+    function toggleMenu(str){
+        if($('.' + str).data('clicked')){
+            $('.' + str).data('clicked', false);
+        }else{
+            $('.' + str).data('clicked', true);
+        }
+    }
+        $("body").click(function(){
+            var z = document.getElementsByClassName("nav__profile__menu");
+            var zl = z.length;
+            for (let i = 0; i < zl; i++) {
+                for(let j = 0; j < z[i].classList.length; j++){
+                    let str = z[i].classList.item(j);
+                    if(str.includes('dropdown')){
+                        if($('.' + str).data('clicked')){
+                            z[i].classList.toggle('appear');
+                            z[i].classList.toggle('disappear');
+                            $('.' + str).data('clicked', false);
+                            break;
+                        }else{
+                            z[i].classList.toggle('appear', false);
+                            z[i].classList.toggle('disappear', true);
+                        }
+                    }
+                }
+            }
+        });
+    function input_active(a){
+        let input = document.getElementById(a);
+        if(input.value !== ""){
+            $(`#${a}`).addClass('setting__input--active');
+        }else{
+            $(`#${a}`).removeClass('setting__input--active');
+        }
+    }
+
+    var loadFile = function(event) {
+        var image = document.getElementById('loadFileImg');
+        image.src = URL.createObjectURL(event.target.files[0]);
+        var fileReader = new FileReader();
+        fileReader.onload = function(fileLoadedEvent) {
+            var srcData = fileLoadedEvent.target.result;
+        };
+        fileReader.readAsDataURL(event.target.files[0]);
+    };
+
+        function updateClock()
+    {
+        var curtime = Math.round((new Date().getTime() - clientOffset) / 1000);
+        var fmt = "";
+        if ( timeleftelt.innerHTML=='start delayed' || timeleftelt.innerHTML == 'no contest' ) {
+            var left = 0;
+            var what = timeleftelt.innerHTML;
+        } else if (curtime >= starttime && curtime < endtime ) {
+            var left = endtime - curtime;
+            var what = "";
+        } else if (curtime >= activatetime && curtime < starttime ) {
+            var left = starttime - curtime;
+            var what = "time to start: ";
+        } else {
+            var left = 0;
+            var what = "contest over";
+        }
+
+        if ( left ) {
+            if ( left > 24*60*60 ) {
+                var d = Math.floor(left/(24*60*60));
+                fmt += d + "d ";
+                left -= d * 24*60*60;
+            }
+            if ( left > 60*60 ) {
+                var h = Math.floor(left/(60*60));
+                fmt += h + ":";
+                left -= h * 60*60;
+            }
+            var m = Math.floor(left/60);
+            if ( m < 10 ) { fmt += "0"; }
+            fmt += m + ":";
+            left -= m * 60;
+            if ( left < 10 ) { fmt += "0"; }
+            fmt += left;
+        }
+
+        timeleftelt.innerHTML = what + fmt;
+    }
+    var initial = 1775545337;
+    var localInitial = new Date().getTime();
+    var activatetime = 1775540700;
+    var starttime = 1775542500.000000000;
+    var endtime = 1775564100.000000000;
+    var clientOffset = localInitial - new Date(initial * 1000).getTime();
+    var timeleftelt = document.getElementById("timeleft");
+
+    setInterval(function () {
+        updateClock();
+    }, 1000);
+    updateClock();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.js">
+  </script>
+  <script>
+   function open_chat_popup() {
+        let icon_wrapper = document.querySelector('.chat__icon__wrapper');
+        let panel = document.getElementsByClassName("chat__panel")[0];
+        $(".chat__icon").removeClass('fa-comment-o').addClass('fa-comment');
+        panel.classList.remove('disappear');
+        panel.style.right = "0vw";
+        panel.style.boxShadow = "-2px 2px 2px 2px rgba(0, 0, 0, 0.1)";
+        var elem = document.getElementById('chat__body');
+        elem.scrollTop = elem.scrollHeight;
+        new_message = 0;
+        chat_open = true;
+        localStorage.setItem("show_chat_popup", 1);
+        $('#chat__icon__noti').hide();
+    }
+
+    function close_chat_popup() {
+        let icon_wrapper = document.querySelector('.chat__icon__wrapper');
+        let panel = document.getElementsByClassName("chat__panel")[0];
+        $(".chat__icon").removeClass('fa-comment').addClass('fa-comment-o');
+        icon_wrapper.style.right = "2.5vw";
+        panel.style.right = "-30vw";
+        panel.style.boxShadow = "";
+        panel.classList.add('disappear');
+        chat_open = false;
+        localStorage.setItem("show_chat_popup", 0);
+    }
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    var chat_channel = localStorage.getItem('chat_channel') || 'public';
+
+    var channel_select = document.getElementById('channel');
+    var channel_opts = channel_select.options;
+    var chat_channel_option = [];
+    for (i = 0; i < channel_opts.length; i++) {
+        chat_channel_option.push(channel_opts[i].value);
+        if (channel_opts[i].value == chat_channel) {
+            channel_select.selectedIndex = i;
+        }
+    }
+
+    if (!chat_channel_option.includes(chat_channel)) {
+        chat_channel = chat_channel_option[0];
+    }
+    localStorage.setItem('chat_channel', chat_channel);
+
+    function update_message(data) {
+        $('#chat__body').empty();
+        data.messages.forEach(function(json_msg) {
+            html_node = '<div class="chat__message">\n' +
+                '                <div class="chat__message__inf">\n' +
+                '                    <p class="chat__message__inf__name">Từ <span class="chat__message__inf__actor" onclick="sendTo(\'' + json_msg.user.username + '\', \'' + json_msg.user.full_name + '\')">' + json_msg.user.username + ' (' + json_msg.user.full_name + ')</span> đến <span class="chat__message__inf__actor" onclick="sendTo(' + (json_msg.dest_user.username != null ? '\'' + json_msg.dest_user.username +'\'' : null) + ')">' + ((json_msg.dest_user.username != null) ? (json_msg.dest_user.username + '(' + json_msg.dest_user.full_name + ')') : json_msg.dest_user.full_name) + '</span>:</p>\n' +
+                '                    <p class="chat__message__inf__time">' + json_msg.time + '</p>\n' +
+                '                </div>\n' +
+                '                <div class="chat__message__cont">\n' +
+                '                    <p>' + json_msg.message.replace("\n", '<br />') + '</p>\n' +
+                '                </div>\n' +
+                '            </div>';
+            $('#chat__body').append(html_node);
+        });
+        $("#chat__body").scrollTop(function() { return this.scrollHeight; });
+    }
+    $('#channel').change(function() {
+        chat_channel = $(this).val();
+        $.ajax({
+            type: "POST",
+            url: '/chat_channel',
+            dataType: "json",
+            data: {'channel': $(this).val()},
+            success: function (data) {
+                localStorage.setItem('chat_channel', chat_channel);
+                update_message(data);
+            }
+        });
+    });
+    var new_message = 1;
+    var chat_open = false;
+    var show_chat_popup = localStorage.getItem('show_chat_popup') || 0;
+    if (show_chat_popup == 1) {
+        let icon = document.querySelector('.chat__icon');
+        if(icon.classList.contains('fa-comment-o')){
+            open_chat_popup();
+        }
+    }
+
+    let toggleChat = () => {
+        let icon = document.querySelector('.chat__icon');
+        if(icon.classList.contains('fa-comment-o')){
+            open_chat_popup();
+        }else{
+            close_chat_popup();
+        }
+    };
+
+    var socket = io('https://107.zcode.edu.vn:8888');
+    socket.on('connect', function() {
+        $.ajax({
+            type: "POST",
+            url: '/chat_auth',
+            dataType: "json",
+            data: {'socket_id': socket.id, 'channel': chat_channel},
+            success:function(data){
+                $(".msg").val('');
+                update_message(data);
+            }
+        });
+    });
+    socket.on('chat message', function(msg) {
+        json_msg = msg;
+        html_node = '<div class="chat__message">\n' +
+            '                <div class="chat__message__inf">\n' +
+            '                    <p class="chat__message__inf__name">Từ <span class="chat__message__inf__actor" onclick="sendTo(\'' + json_msg.user.username + '\', \'' + json_msg.user.full_name + '\')">' + json_msg.user.username + ' (' + json_msg.user.full_name + ')</span> đến <span class="chat__message__inf__actor" onclick="sendTo(' + (json_msg.dest_user.username != null ? '\'' + json_msg.dest_user.username +'\'' : null) + ')">' + ((json_msg.dest_user.username != null) ? (json_msg.dest_user.username + '(' + json_msg.dest_user.full_name + ')') : json_msg.dest_user.full_name) + '</span>:</p>\n' +
+            '                    <p class="chat__message__inf__time">' + json_msg.time + '</p>\n' +
+            '                </div>\n' +
+            '                <div class="chat__message__cont">\n' +
+            '                    <p>' + json_msg.message.replace("\n", '<br />') + '</p>\n' +
+            '                </div>\n' +
+            '            </div>';
+        $('#chat__body').append(html_node);
+        $("#chat__body").scrollTop(function() { return this.scrollHeight; });
+        if (!chat_open) {
+            new_message++;
+            $('#chat__icon__noti__number').html(new_message);
+            $('#chat__icon__noti').show();
+        }
+    });
+    socket.on('change_channel', function(msg) {
+        chat_channel = msg;
+        $('#channel').val(chat_channel);
+        $.ajax({
+            type: "POST",
+            url: '/chat_message',
+            dataType: "json",
+            data: {'channel': chat_channel},
+            success: function (data) {
+                update_message(data);
+            }
+        });
+    });
+    $(function() {
+        $("#msg").keypress(function (e) {
+            if(e.which === 13) {
+                chat_channel = localStorage.getItem('chat_channel');
+                dest_username = $('#rec').val();
+                $.ajax({
+                    type: "POST",
+                    url: '/chat',
+                    dataType: "json",
+                    data: {'message': $(this).val(), 'username': dest_username, 'channel': chat_channel},
+                    success:function(data){
+                        $(".msg").val('');
+                    }
+                });
+                $(this).val("");
+                e.preventDefault();
+            }
+        });
+    });
+
+    let sendTo = function(username, full_name){
+        var rec = document.getElementById('rec');
+        if (username == null) {
+            rec.selectedIndex = 0;
+            return;
+        }
+        var opts = rec.options;
+        old_option = false;
+        for (var opt, j = 0; opt = opts[j]; j++) {
+            if (opt.value == username) {
+                rec.selectedIndex = j;
+                old_option = true;
+                break;
+            }
+        }
+        if (!old_option) {
+            new_option = document.createElement('option');
+            new_option.value = username;
+            if (typeof new_option.textContent === 'undefined')
+            {
+                new_option.innerText = username + ' (' + full_name + ')';
+            }
+            else
+            {
+                new_option.textContent = username + ' (' + full_name + ')';
+            }
+            rec.appendChild(new_option);
+            rec.selectedIndex = rec.options.length - 1;
+        }
+    }
+  </script>
+  <script>
+   function clickMenu() {
+        var x = document.getElementById("nav__profile");
+        if (x.className === "nav__profile") {
+            x.className += " show";
+        } else {
+            x.className = "nav__profile";
+        }
+    }
+  </script>
+  <script type="text/javascript">
+   $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        function finish_contest(contest_id) {
+            $.ajax({
+                url: "/student/contest/finish",
+                type: "post",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({id: contest_id}),
+                success: function (result) {
+                    $('#classlist__success__popup').toggleClass('disappear');
+                    $('.classlist__confirm__popup').toggleClass('disappear');
+                }
+            });
+        }
+        function close_status() {
+            $('#classlist__success__popup').toggleClass('disappear');
+            window.location.href = '/student/contest';
+        }
+        function save_result() {
+            var data = [];
+            $("input:radio[name^=mc_]:checked").each(function() {
+                data.push({
+                    'question': $(this).attr('data-mc-question'),
+                    'option': $(this).val(),
+                })
+            });
+            $.ajax({
+                url: "/student/contest/save_result",
+                type: "post",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({id: "K051UW1jVXdxZEl3WEFBc2M1OWNBZz09", data: data}),
+                success: function (result) {
+                    $('#save_result_response').removeClass('disappear');
+                    $("input:radio[name^=mc_]:checked").each(function() {
+                        $('#question_button_' + $(this).attr('data-mc-question-index')).attr('class', 'answer');
+                    });
+                }
+            });
+        }
+
+        function save_waiting_result() {
+            var data = [];
+            $("input:radio[name^=mc_]:checked").each(function() {
+                data.push({
+                    'question': $(this).attr('data-mc-question'),
+                    'option': $(this).val(),
+                })
+            });
+            $.ajax({
+                url: "/student/contest/save_waiting_result",
+                type: "post",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify({id: "K051UW1jVXdxZEl3WEFBc2M1OWNBZz09", data: data}),
+                success: function (result) {
+                    console.log('OK');
+                }
+            });
+        }
+        $("input:radio[name^=mc_]").change(function() {
+            $('#question_button_' + $(this).attr('data-mc-question-index')).attr('class', 'waiting');
+            save_waiting_result();
+        });
+  </script>
+ </body>
+</html>

@@ -1,0 +1,13 @@
+# Soda anomaly checks for freshness and volume monitoring
+
+checks for stg_comments:
+  - row_count > 100:
+      name: "DQ_ANOMALY_STG_COMMENTS_MIN_ROW_COUNT"
+
+checks for fct_movie_consumption_daily:
+  - row_count > 100:
+      name: "DQ_ANOMALY_CONSUMPTION_MIN_ROW_COUNT"
+
+checks for fct_movie_engagement:
+  - row_count > 100:
+      name: "DQ_ANOMALY_ENGAGEMENT_MIN_ROW_COUNT"

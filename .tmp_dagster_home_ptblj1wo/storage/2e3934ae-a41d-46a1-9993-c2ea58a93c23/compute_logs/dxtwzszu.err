@@ -1,0 +1,64 @@
+[32m2026-04-07 13:22:04 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 2e3934ae-a41d-46a1-9993-c2ea58a93c23 - 420983 - LOGS_CAPTURED - Started capturing logs in process (pid: 420983).
+[32m2026-04-07 13:22:04 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 2e3934ae-a41d-46a1-9993-c2ea58a93c23 - 420983 - mongodb - STEP_START - Started execution of step "mongodb".
+/home/dksan/code/data-engineer/dagster-mflix/dagster_mflix/mongodb/helpers.py:208: Dlt100DeprecationWarning: Use `map_nested_values_in_place` instead. Deprecated in dlt 1.0.0 to be removed in 2.0.0.
+  yield map_nested_in_place(convert_mongo_objs, docs_slice)
+2026-04-07 13:25:34,922|[WARNING]|420983|140667951109952|dlt|load.py|load_single_package:662|Package 1775568128.9074016 was not fully loaded. Load job pool is successfully drained but 2 new jobs are left in the package.
+2026-04-07 13:25:34,922|[WARNING]|420983|140667951109952|dlt|pool_runner.py|run_pool:216|Exiting runner due to signal 2
+[32m2026-04-07 13:25:35 +0000[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 2e3934ae-a41d-46a1-9993-c2ea58a93c23 - 420983 - mongodb - STEP_FAILURE - Execution of step "mongodb" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "mongodb"::
+
+dlt.pipeline.exceptions.PipelineStepFailed: Pipeline execution failed at `step=load` when processing package with `load_id=1775568128.9074016` with exception:
+
+<class 'dlt.common.exceptions.SignalReceivedException'>
+Received `signal_code=2`
+
+Pending packages are left in the pipeline and will be re-tried on the next pipeline run. If you pass new data to extract to next run, it will be ignored. Run `dlt pipeline local_mongo info` for more information or `dlt pipeline local_mongo drop-pending-packages` to drop pending packages.
+WARNING: package `1775568128.9074016` is partially loaded. Data in destination could be modified by one of completed load jobs while others were not yet executed or were retried. Data in the destination may be in inconsistent state. We recommend that you retry the load or  review the incident before dropping pending packages. See https://dlthub.com/docs/running-in-production/running#partially-loaded-packages for details
+
+Stack Trace:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/utils.py", line 57, in op_execution_error_boundary
+    yield
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 394, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/dagster_mflix/assets/mongodb.py", line 27, in dlt_asset_factory
+    yield from dlt.run(context=context, write_disposition="merge")
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dlt/dlt_event_iterator.py", line 77, in __next__
+    return next(self._inner_iterator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dlt/resource.py", line 284, in _run
+    load_info = dlt_pipeline.run(dlt_source, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/pipeline/pipeline.py", line 224, in _wrap
+    step_info = f(self, *args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/pipeline/pipeline.py", line 272, in _wrap
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/pipeline/pipeline.py", line 770, in run
+    return self.load(destination, dataset_name, credentials=credentials)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/pipeline/pipeline.py", line 224, in _wrap
+    step_info = f(self, *args, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/pipeline/pipeline.py", line 164, in _wrap
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/pipeline/pipeline.py", line 272, in _wrap
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/pipeline/pipeline.py", line 635, in load
+    raise PipelineStepFailed(self, "load", err_load_id, l_ex, step_info) from l_ex
+
+The above exception was caused by the following exception:
+dlt.common.exceptions.SignalReceivedException: Received `signal_code=2`
+
+Stack Trace:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/pipeline/pipeline.py", line 625, in load
+    runner.run_pool(load_step.config, load_step)
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/common/runners/pool_runner.py", line 208, in run_pool
+    signals.raise_if_signalled()
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dlt/common/runtime/signals.py", line 90, in raise_if_signalled
+    raise exception_for_signal()
+[0m

@@ -1,0 +1,17 @@
+{
+  "run_id": "2e3934ae-a41d-46a1-9993-c2ea58a93c23",
+  "timestamp_utc": "2026-04-07T13:22:45.891855+00:00",
+  "layer": "staging",
+  "quality_status": "passed",
+  "soda_command": [
+    "soda",
+    "scan",
+    "-d",
+    "snowflake_analytics",
+    "-c",
+    "/home/dksan/code/data-engineer/dagster-mflix/soda/configuration/configuration.yml",
+    "/home/dksan/code/data-engineer/dagster-mflix/soda/checks/check_staging.yml"
+  ],
+  "soda_stdout_tail": "[13:22:36] Soda Core 3.5.6\n[13:22:45] Scan summary:\n[13:22:45] 8/8 checks PASSED: \n[13:22:45]     stg_comments in snowflake_analytics\n[13:22:45]       Staging comments table has data [PASSED]\n[13:22:45]     stg_embedded_movies in snowflake_analytics\n[13:22:45]       Staging embedded movies table has data [PASSED]\n[13:22:45]     stg_movie_cast in snowflake_analytics\n[13:22:45]       DQ_STG_CAST_ROW_COUNT_GT_0 [PASSED]\n[13:22:45]     stg_movie_genres in snowflake_analytics\n[13:22:45]       DQ_STG_GENRES_ROW_COUNT_GT_0 [PASSED]\n[13:22:45]     stg_movie_countries in snowflake_analytics\n[13:22:45]       DQ_STG_COUNTRIES_ROW_COUNT_GT_0 [PASSED]\n[13:22:45]     stg_movie_directors in snowflake_analytics\n[13:22:45]       DQ_STG_DIRECTORS_ROW_COUNT_GT_0 [PASSED]\n[13:22:45]     stg_movie_writers in snowflake_analytics\n[13:22:45]       DQ_STG_WRITERS_ROW_COUNT_GT_0 [PASSED]\n[13:22:45]     stg_movie_languages in snowflake_analytics\n[13:22:45]       DQ_STG_LANGUAGES_ROW_COUNT_GT_0 [PASSED]\n[13:22:45] All is good. No failures. No warnings. No errors.\n",
+  "soda_stderr_tail": ""
+}

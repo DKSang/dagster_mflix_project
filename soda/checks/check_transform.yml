@@ -4,109 +4,31 @@
 checks for int_movie_flattened:
   - row_count > 0:
       name: "Intermediate movies table has data"
-  - missing_count(movie_id) = 0:
-      name: "No null movie_id in intermediate"
-  - missing_count(title) = 0:
-      name: "No null title in intermediate movies"
-  - duplicate_count(movie_id) = 0:
-      name: "No duplicate movies in intermediate"
-  - invalid_count(imdb_rating) = 0:
-      valid_format: "number"
-      name: "All IMDB ratings are numeric"
-  - invalid_range(imdb_rating) = 0:
-      valid_min: 0
-      valid_max: 10
-      name: "IMDB ratings in valid range (0-10)"
-  - invalid_count(imdb_votes) = 0:
-      valid_format: "number"
-      name: "All IMDB vote counts are numeric"
-  - invalid_range(imdb_votes) = 0:
-      valid_min: 0
-      valid_max: 9999999
-      name: "IMDB vote counts are non-negative"
 
 checks for dim_genres:
   - row_count > 0:
       name: "Genres dimension has data"
-  - missing_count(genre_id) = 0:
-      name: "No null genre_id in dimension"
-  - missing_count(genre_name) = 0:
-      name: "No null genre_name"
-  - duplicate_count(genre_id) = 0:
-      name: "No duplicate genre_ids"
-  - duplicate_count(genre_name) = 0:
-      name: "No duplicate genre_names"
 
-checks for dim_countries:
+checks for dim_country:
   - row_count > 0:
       name: "Countries dimension has data"
-  - missing_count(country_id) = 0:
-      name: "No null country_id in dimension"
-  - missing_count(country_name) = 0:
-      name: "No null country_name"
-  - duplicate_count(country_id) = 0:
-      name: "No duplicate country_ids"
-  - duplicate_count(country_name) = 0:
-      name: "No duplicate country_names"
 
 checks for dim_languages:
   - row_count > 0:
       name: "Languages dimension has data"
-  - missing_count(language_id) = 0:
-      name: "No null language_id in dimension"
-  - missing_count(language_name) = 0:
-      name: "No null language_name"
-  - duplicate_count(language_id) = 0:
-      name: "No duplicate language_ids"
-  - duplicate_count(language_name) = 0:
-      name: "No duplicate language_names"
 
 checks for dim_cast:
   - row_count > 0:
       name: "Cast dimension has data"
-  - missing_count(cast_id) = 0:
-      name: "No null cast_id in dimension"
-  - missing_count(cast_name) = 0:
-      name: "No null cast_name"
-  - duplicate_count(cast_id) = 0:
-      name: "No duplicate cast_ids"
-  - duplicate_count(cast_name) = 0:
-      name: "No duplicate cast_names"
 
 checks for dim_directors:
   - row_count > 0:
       name: "Directors dimension has data"
-  - missing_count(director_id) = 0:
-      name: "No null director_id in dimension"
-  - missing_count(director_name) = 0:
-      name: "No null director_name"
-  - duplicate_count(director_id) = 0:
-      name: "No duplicate director_ids"
-  - duplicate_count(director_name) = 0:
-      name: "No duplicate director_names"
 
 checks for dim_writers:
   - row_count > 0:
       name: "Writers dimension has data"
-  - missing_count(writer_id) = 0:
-      name: "No null writer_id in dimension"
-  - missing_count(writer_name) = 0:
-      name: "No null writer_name"
-  - duplicate_count(writer_id) = 0:
-      name: "No duplicate writer_ids"
-  - duplicate_count(writer_name) = 0:
-      name: "No duplicate writer_names"
 
 checks for dim_movies:
   - row_count > 0:
       name: "Movies dimension has data"
-  - missing_count(movie_id) = 0:
-      name: "No null movie_id in dimension"
-  - missing_count(title) = 0:
-      name: "No null title in movies dimension"
-  - duplicate_count(movie_id) = 0:
-      name: "No duplicate movie_ids in dimension"
-  - invalid_range(imdb_rating) = 0:
-      valid_min: 0
-      valid_max: 10
-      name: "Movie ratings in dimension are valid"

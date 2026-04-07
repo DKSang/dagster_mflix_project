@@ -17,5 +17,5 @@ select
   primary_writer_name,
   writer_names,
   cast_names,
-  movie_dlt_id as _dlt_id
+  dlt_movie_id as _dlt_id
 from {{ ref('int_movie_flattened') }}

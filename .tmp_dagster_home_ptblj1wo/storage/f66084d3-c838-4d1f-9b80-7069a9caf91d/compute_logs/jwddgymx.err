@@ -1,0 +1,93 @@
+[32m2026-04-07 13:15:15 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - 404401 - LOGS_CAPTURED - Started capturing logs in process (pid: 404401).
+[32m2026-04-07 13:15:15 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - 404401 - dbt_intermediate - STEP_START - Started execution of step "dbt_intermediate".
+[32m2026-04-07 13:15:15 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - dbt_intermediate - A dbt subsetted execution is not being performed. Using the default dbt selection arguments `['--select', 'intermediate.*']`.
+[32m2026-04-07 13:15:21 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - dbt_intermediate - Copying `/home/dksan/code/data-engineer/dagster-mflix/mflix_snowflake/target/partial_parse.msgpack` to `/home/dksan/code/data-engineer/dagster-mflix/mflix_snowflake/target/dbt_intermediate-f66084d-4e29f05/partial_parse.msgpack` to take advantage of partial parsing.
+[32m2026-04-07 13:15:21 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - dbt_intermediate - Running dbt command: `/home/dksan/code/data-engineer/dagster-mflix/.venv/bin/dbt build --select intermediate.*`.
+[32m2026-04-07 13:15:37 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - dbt_intermediate - Finished dbt command: `/home/dksan/code/data-engineer/dagster-mflix/.venv/bin/dbt build --select intermediate.*`.
+[32m2026-04-07 13:15:37 +0000[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - f66084d3-c838-4d1f-9b80-7069a9caf91d - 404401 - dbt_intermediate - STEP_FAILURE - Execution of step "dbt_intermediate" failed.
+
+dagster_dbt.errors.DagsterDbtCliRuntimeError: The dbt CLI process with command
+
+`/home/dksan/code/data-engineer/dagster-mflix/.venv/bin/dbt build --select intermediate.*`
+
+failed with exit code `1`. Check the stdout in the Dagster compute logs for the full information about the error, or view the dbt debug log: /home/dksan/code/data-engineer/dagster-mflix/mflix_snowflake/target/dbt_intermediate-f66084d-4e29f05/dbt.log.
+
+Errors parsed from dbt logs:
+
+3 of 47 ERROR creating sql table model dbt_schema.int_movie_directors_bridge ... [[31mERROR[0m in 3.10s]
+
+2 of 47 ERROR creating sql table model dbt_schema.int_movie_countries_bridge ... [[31mERROR[0m in 3.30s]
+
+4 of 47 ERROR creating sql table model dbt_schema.int_movie_flattened .......... [[31mERROR[0m in 3.31s]
+
+1 of 47 ERROR creating sql table model dbt_schema.int_movie_cast_bridge ........ [[31mERROR[0m in 3.33s]
+
+5 of 47 ERROR creating sql table model dbt_schema.int_movie_genres_bridge ...... [[31mERROR[0m in 2.79s]
+
+7 of 47 ERROR creating sql table model dbt_schema.int_movie_writers_bridge ..... [[31mERROR[0m in 2.96s]
+
+6 of 47 ERROR creating sql table model dbt_schema.int_movie_languages_bridge ... [[31mERROR[0m in 3.47s]
+
+  Database Error in model int_movie_directors_bridge (models/intermediate/int_movie_directors_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-f66084d-4e29f05/run/mflix_snowflake/models/intermediate/int_movie_directors_bridge.sql
+
+  Database Error in model int_movie_countries_bridge (models/intermediate/int_movie_countries_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-f66084d-4e29f05/run/mflix_snowflake/models/intermediate/int_movie_countries_bridge.sql
+
+  Database Error in model int_movie_flattened (models/intermediate/int_movie_flattened.sql)
+  000904 (42000): SQL compilation error: error line 6 at position 3
+  invalid identifier '_DLT_ID'
+  compiled code at target/dbt_intermediate-f66084d-4e29f05/run/mflix_snowflake/models/intermediate/int_movie_flattened.sql
+
+  Database Error in model int_movie_cast_bridge (models/intermediate/int_movie_cast_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-f66084d-4e29f05/run/mflix_snowflake/models/intermediate/int_movie_cast_bridge.sql
+
+  Database Error in model int_movie_genres_bridge (models/intermediate/int_movie_genres_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-f66084d-4e29f05/run/mflix_snowflake/models/intermediate/int_movie_genres_bridge.sql
+
+  Database Error in model int_movie_writers_bridge (models/intermediate/int_movie_writers_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-f66084d-4e29f05/run/mflix_snowflake/models/intermediate/int_movie_writers_bridge.sql
+
+  Database Error in model int_movie_languages_bridge (models/intermediate/int_movie_languages_bridge.sql)
+  000904 (42000): SQL compilation error: error line 11 at position 28
+  invalid identifier 'M._DLT_ID'
+  compiled code at target/dbt_intermediate-f66084d-4e29f05/run/mflix_snowflake/models/intermediate/int_movie_languages_bridge.sql
+
+Stack Trace:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_plan.py", line 247, in dagster_event_sequence_for_step
+    yield from check.generator(step_events)
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_step.py", line 504, in core_dagster_event_sequence_for_step
+    for user_event in _step_output_error_checked_user_event_sequence(
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_step.py", line 183, in _step_output_error_checked_user_event_sequence
+    for user_event in user_event_sequence:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/execute_step.py", line 88, in _process_asset_results_to_events
+    for user_event in user_event_sequence:
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute.py", line 188, in execute_core_compute
+    for step_output in _yield_compute_results(step_context, inputs, compute_fn, compute_context):
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute.py", line 157, in _yield_compute_results
+    for event in iterate_with_context(
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 394, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/dagster_mflix/assets/dbt_intermediate.py", line 14, in dbt_intermediate
+    yield from dbt.cli(["build"], context=context).stream()
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dbt/core/dbt_event_iterator.py", line 215, in __next__
+    return next(self._inner_iterator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 288, in _stream_asset_events
+    for event in self.stream_raw_events():
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 381, in stream_raw_events
+    self._raise_on_error()
+  File "/home/dksan/code/data-engineer/dagster-mflix/.venv/lib/python3.11/site-packages/dagster_dbt/core/dbt_cli_invocation.py", line 474, in _raise_on_error
+    raise error
+[0m

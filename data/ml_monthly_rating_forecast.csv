@@ -1,0 +1,4 @@
+month_start,predicted_avg_rating,model,training_points
+2015-12-01,7.042370193933608,linear_regression,59
+2016-01-01,7.046719195312124,linear_regression,59
+2016-02-01,7.0510681966906406,linear_regression,59

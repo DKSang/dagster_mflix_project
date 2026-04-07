@@ -1,4 +1,6 @@
 
+-- depends_on: {{ source('dagster_quality', 'raw_quality_gate') }}
+
 with source as (
     select *
     from {{ source('raw', 'comments') }}
