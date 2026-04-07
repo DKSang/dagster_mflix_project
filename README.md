@@ -18,12 +18,6 @@ Một nền tảng dữ liệu end-to-end thực tiễn cho phân tích MFlix: i
 ![MongoDB Raw Zone](images/mongodb_raw.png)
 ![Snowflake Warehouse](images/snowflake_wh.png)
 
-File Excalidraw để chỉnh sửa kiến trúc:
-
-- [excalidraw/project_architecture_with_logos.excalidraw](excalidraw/project_architecture_with_logos.excalidraw)
-- [images/project_architecture.excalidraw](images/project_architecture.excalidraw)
-
-Lưu ý: GitHub không render trực tiếp file `.excalidraw` như ảnh, nên cần mở bằng Excalidraw để chỉnh sửa hoặc export PNG/SVG.
 
 ## 🔧 Các Tính Năng Chính
 
@@ -120,8 +114,6 @@ SNOWFLAKE_USER=user_name
 SNOWFLAKE_PASSWORD=your_secret_password
 ```
 
-> ⚠️ Không bao giờ commit `.env` vào version control. Dùng `.gitignore` để exclude nó.
-
 ## ⚙️ Chạy Nền tảng
 
 ### Khởi động Dagster
@@ -173,7 +165,6 @@ uv run pytest -q dagster_mflix_tests/test_data_contracts.py
 
 - `data_contracts/mart_contracts.yml`
 - `data_contracts/mart_contracts_release_notes.md`
-- `excalidraw/README.md` - hướng dẫn vẽ sơ đồ
 
 ## 🤝 Ghi Chú Presentation
 
@@ -187,8 +178,3 @@ Repository này được cấu trúc như một dự án data engineering produc
 
 Hoàn hảo để thể hiện kiến thức modern data stack trong phỏng vấn hoặc presentation cho client.
 
-## 📖 Đóng Góp & License
-
-Dự án này mở để đóng góp và cải tiến. Vui lòng tuân theo các code pattern hiện có và chạy tests trước khi submit.
-
-License MIT — xem LICENSE để biết thêm chi tiết.
