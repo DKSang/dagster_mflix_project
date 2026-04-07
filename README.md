@@ -166,7 +166,6 @@ Output sẽ được lưu vào thư mục `data/`.
 
 | Metric | Giá trị | Ghi Chú |
 | --- | --- | --- |
-| **Số Records Hàng Ngày** | ~1,200-1,500 records | Từ MongoDB (comments + embedded movies) với incremental ingestion |
 | **Số Movie Đe cập** | ~23,000 movies | Từ MFlix dataset (MongoDB embedded_movies collection) |
 | **Số Comments Tracked** | ~1.2 triệu comments | TỪ MongoDB comments collection (incremental merge) |
 | **Data Grain** | Monthly partition | Assets sử dụng monthly partitioning cho reproducibility |
