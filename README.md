@@ -12,13 +12,8 @@ Một nền tảng dữ liệu end-to-end thực tiễn cho phân tích MFlix: i
 
 ## 🖼️ Kiến trúc Hệ thống
 
-(images/architecture.png)
-
-![Dagster Assets DAG](images/dagster_asset.png)
-![MongoDB Raw Zone](images/mongodb_raw.png)
-![Snowflake Warehouse](images/snowflake_wh.png)
-
-
+![System_Architecture](images/architecture.png)
+---
 ## 🔧 Các Tính Năng Chính
 
 - ELT từ đầu đến cuối: MongoDB -> dlt -> Snowflake -> dbt marts.
@@ -41,7 +36,13 @@ Các output được sinh ra và lưu vào thư mục `data/`:
 - `data/top_movies_by_month.csv` - top phim theo tháng
 
 ## 📸 Quan sát Pipeline Chạy
-
+### Orchestration (Dagster)
+![Dagster Assets DAG](images/dagster_asset.png)
+### Raw Storage (MongoDB Mflix)
+![MongoDB Raw Zone](images/mongodb_raw.png)
+### Data Warehouse (Snowflake)
+![Snowflake Warehouse](images/snowflake_wh.png)
+---
 Để xem pipeline hoạt động:
 
 1. Khởi động Dagster UI tại http://localhost:3000.
