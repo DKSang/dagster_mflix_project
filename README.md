@@ -41,18 +41,16 @@ Generated outputs are written to `data/`:
 - `data/movie_engagement.csv`
 - `data/top_movies_by_month.csv`
 
-## 📸 Pipeline Screenshots
+## 📸 Pipeline Execution
 
-Add screenshots here to make README look production-ready:
+To see the pipeline in action:
 
-- `images/dagster_graph.png`
-- `images/dagster_jobs_runs.png`
-- `images/snowflake_dashboard_output.png`
-- `images/soda_quality_output.png`
+1. Start Dagster UI and navigate to the assets view to see the full DAG.
+2. Trigger a job run and monitor the execution.
+3. Check `logs/quality_audit/` for quality gate results.
+4. Export CSV outputs from `data/` for downstream consumption.
 
-Screenshot checklist:
-
-- `images/SCREENSHOTS_NEEDED.md`
+For production screenshots, run Dagster locally and capture from the UI.
 
 ## 🛠️ Tech Stack Details
 
@@ -113,6 +111,16 @@ Set at least:
 - `SNOWFLAKE_USER`
 - `SNOWFLAKE_PASSWORD`
 
+Example .env:
+
+```bash
+SNOWFLAKE_ACCOUNT=xy12345.us-east-1
+SNOWFLAKE_USER=user_name
+SNOWFLAKE_PASSWORD=your_secret_password
+```
+
+> ⚠️ Never commit `.env` to version control. Use `.gitignore` to exclude it.
+
 ## ⚙️ Run the Platform
 
 ### Start Dagster
@@ -120,6 +128,8 @@ Set at least:
 ```bash
 uv run dagster dev -m dagster_mflix
 ```
+
+Then open http://localhost:3000 in your browser.
 
 ### Build dbt Models
 
@@ -135,6 +145,21 @@ uv run dbt build
 cd mflix_snowflake
 uv run dbt build --select dashboard_top_movies_monthly dashboard_engagement_daily dashboard_genre_trend_daily dashboard_rating_distribution
 ```
+
+### Run End-user Jobs Directly (Without Orchestration)
+
+```bash
+# Ad-hoc genre report
+uv run python -c "from dagster_mflix.assets.end_user import ad_hoc_genre_interest_report; ad_hoc_genre_interest_report()"
+
+# BI KPI snapshot
+uv run python -c "from dagster_mflix.assets.end_user import bi_kpi_snapshot; bi_kpi_snapshot()"
+
+# ML monthly forecast
+uv run python -c "from dagster_mflix.assets.end_user import ml_monthly_rating_forecast; ml_monthly_rating_forecast()"
+```
+
+Outputs will be written to `data/` folder.
 
 ## 🧪 Validation
 
@@ -152,10 +177,18 @@ uv run pytest -q dagster_mflix_tests/test_data_contracts.py
 
 ## 🤝 Presentation Note
 
-This repository is now structured in the same presentation direction as the two references:
+This repository is structured as a production-grade data engineering project:
 
-- portfolio-style README sections
-- dedicated `images/` and `excalidraw/` folders
-- explicit outputs and screenshots section
+- **Portfolio-ready README** with clear architecture, features, and quick-start sections.
+- **Dedicated `images/` and `excalidraw/`** folders for diagrams and visual documentation.
+- **Three end-user jobs** (ad-hoc, BI, ML) demonstrating real downstream consumption patterns.
+- **Quality-first design** with Soda checks and audit logs at each pipeline stage.
+- **Contract governance** for MART schemas with semantic versioning.
 
-If you provide real screenshots, this README can look fully production-grade for end-user demos.
+Perfect for demonstrating modern data stack knowledge in interviews or client presentations.
+
+## 📖 Contributing & License
+
+This project is open for contributions and improvements. Please follow the existing code patterns and run tests before submitting.
+
+Licensed under MIT — see LICENSE for details.
