@@ -1,6 +1,0 @@
-[32m2026-04-07 13:22:36 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 2e3934ae-a41d-46a1-9993-c2ea58a93c23 - 422691 - LOGS_CAPTURED - Started capturing logs in process (pid: 422691).
-[32m2026-04-07 13:22:36 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 2e3934ae-a41d-46a1-9993-c2ea58a93c23 - 422691 - staging_quality_gate - STEP_START - Started execution of step "staging_quality_gate".
-[32m2026-04-07 13:22:45 +0000[0m - dagster - [34mINFO[0m - __ASSET_JOB - 2e3934ae-a41d-46a1-9993-c2ea58a93c23 - staging_quality_gate - Quality gate passed for staging layer. Audit written to /home/dksan/code/data-engineer/dagster-mflix/logs/quality_audit/2e3934ae-a41d-46a1-9993-c2ea58a93c23-staging.json
-[32m2026-04-07 13:22:45 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 2e3934ae-a41d-46a1-9993-c2ea58a93c23 - 422691 - staging_quality_gate - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
-[32m2026-04-07 13:22:45 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 2e3934ae-a41d-46a1-9993-c2ea58a93c23 - 422691 - staging_quality_gate - ASSET_MATERIALIZATION - Materialized value staging_quality_gate.
-[32m2026-04-07 13:22:45 +0000[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 2e3934ae-a41d-46a1-9993-c2ea58a93c23 - 422691 - staging_quality_gate - STEP_SUCCESS - Finished execution of step "staging_quality_gate" in 11.72s.
