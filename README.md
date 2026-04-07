@@ -12,7 +12,7 @@ Một nền tảng dữ liệu end-to-end thực tiễn cho phân tích MFlix: i
 
 ## 🖼️ Kiến trúc Hệ thống
 
-Ảnh pipeline (render được trực tiếp trên GitHub):
+(images/architecture.png)
 
 ![Dagster Assets DAG](images/dagster_asset.png)
 ![MongoDB Raw Zone](images/mongodb_raw.png)
